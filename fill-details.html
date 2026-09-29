@@ -1,0 +1,2468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fill Your Wedding Details | Bright Screen Invites</title>
+  <meta name="description"
+    content="Provide your wedding and invitation details to customize your bespoke digital wedding invites, video reels, and stationery with Bright Screen Invites.">
+
+  <!-- Favicon and App Icon -->
+  <link rel="icon" type="image/jpeg" href="1.jpg">
+  <link rel="apple-touch-icon" href="1.jpg">
+
+  <!-- Open Graph / WhatsApp / Facebook / Telegram / Chat Previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bright Screen Invites">
+  <meta property="og:title" content="Fill Your Wedding Details | Bright Screen Invites">
+  <meta property="og:description" content="Provide your wedding and invitation details to customize your bespoke digital wedding invites, video reels, and stationery with Bright Screen Invites.">
+  <meta property="og:image" content="1.jpg">
+  <meta property="og:image:secure_url" content="1.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">
+  <meta property="og:image:alt" content="Bright Screen Invites">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fill Your Wedding Details | Bright Screen Invites">
+  <meta name="twitter:description" content="Provide your wedding and invitation details to customize your bespoke digital wedding invites, video reels, and stationery.">
+  <meta name="twitter:image" content="1.jpg">
+
+  <!-- Universal Chat & Search Previews (WhatsApp, iMessage, Google) -->
+  <meta itemprop="image" content="1.jpg">
+  <link rel="image_src" href="1.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --pink: #E31C6E;
+      --pink-dark: #B8144F;
+      --pink-soft: rgba(227, 28, 110, 0.08);
+      --pink-glow: rgba(227, 28, 110, 0.22);
+      --gold: #D4AF37;
+      --cream: #FFF8F5;
+      --cream-card: #FFFFFF;
+      --ink: #241016;
+      --muted: #7A6672;
+      --border: rgba(36, 16, 22, 0.11);
+      --border-focus: #E31C6E;
+      --shadow-sm: 0 2px 10px rgba(36, 16, 22, 0.05);
+      --shadow-md: 0 8px 30px rgba(36, 16, 22, 0.08);
+      --shadow-lg: 0 16px 40px rgba(227, 28, 110, 0.15);
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+      --wa-green: #25D366;
+      --wa-dark: #1EBE5D;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 248, 245, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .brand-logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all .2s ease;
+      cursor: pointer;
+    }
+
+    .nav-btn-outline {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .nav-btn-outline:hover {
+      border-color: var(--pink);
+      color: var(--pink);
+    }
+
+    .nav-btn-admin {
+      background: var(--pink-soft);
+      border: 1px solid var(--pink-glow);
+      color: var(--pink);
+    }
+
+    .nav-btn-admin:hover {
+      background: var(--pink);
+      color: #fff;
+    }
+
+    /* Autosave Pill */
+    .autosave-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #E8F5E9;
+      border: 1px solid #C8E6C9;
+      color: #2E7D32;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: all .25s ease;
+    }
+
+    .autosave-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #2E7D32;
+      display: inline-block;
+      transition: background .2s ease;
+    }
+
+    .autosave-pill.saving {
+      background: #FFF8E1;
+      border-color: #FFE082;
+      color: #F57F17;
+    }
+
+    .autosave-pill.saving .autosave-dot {
+      background: #F57F17;
+    }
+
+    /* Page Hero / Context Banner */
+    .form-hero {
+      padding: 30px 0 22px;
+      background: linear-gradient(180deg, rgba(227, 28, 110, 0.06) 0%, rgba(255, 248, 245, 0) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .sample-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px solid var(--pink-glow);
+      color: var(--pink-dark);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sample-link-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(227, 28, 110, 0.08);
+      border: 1px solid var(--pink-glow);
+      color: var(--pink);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all .2s ease;
+    }
+
+    .sample-link-pill:hover {
+      background: var(--pink);
+      color: #fff;
+    }
+
+    .form-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .form-hero p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 680px;
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      padding: 30px 0 60px;
+    }
+
+    /* Form Container */
+    .form-box {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Card Sections */
+    .form-card {
+      background: var(--cream-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .form-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: rgba(227, 28, 110, 0.25);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .step-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--pink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.88rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(227, 28, 110, 0.25);
+    }
+
+    .card-title-group h2 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .card-title-group p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Grid Layouts inside cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .grid-1 {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    @media (max-width: 680px) {
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .form-card {
+        padding: 18px 16px;
+      }
+    }
+
+    /* Form Fields */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field-label {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .req {
+      color: var(--pink);
+      font-weight: 700;
+    }
+
+    .opt {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
+    .input-control {
+      width: 100%;
+      background: #FFFDFD;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 0.92rem;
+      font-family: var(--sans);
+      color: var(--ink);
+      transition: all .2s ease;
+      outline: none;
+    }
+
+    .input-control:focus {
+      border-color: var(--border-focus);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(227, 28, 110, 0.12);
+    }
+
+    .input-control::placeholder {
+      color: #A999A3;
+      font-size: 0.88rem;
+    }
+
+    textarea.input-control {
+      resize: vertical;
+      min-height: 84px;
+      line-height: 1.45;
+    }
+
+    select.input-control {
+      cursor: pointer;
+    }
+
+    .input-hint {
+      font-size: 0.74rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* Dynamic Events Block */
+    .events-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .event-card {
+      background: #FFF9F7;
+      border: 1px solid rgba(227, 28, 110, 0.18);
+      border-radius: 12px;
+      padding: 18px;
+      position: relative;
+      transition: all .2s ease;
+    }
+
+    .event-card:hover {
+      border-color: var(--pink);
+    }
+
+    .event-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .event-tag {
+      background: var(--pink-soft);
+      color: var(--pink-dark);
+      font-weight: 700;
+      font-size: 0.76rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-remove-event {
+      background: transparent;
+      border: 1px solid rgba(255, 68, 68, 0.25);
+      color: #D32F2F;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all .2s ease;
+    }
+
+    .btn-remove-event:hover {
+      background: #D32F2F;
+      color: #fff;
+    }
+
+    .btn-add-event {
+      margin-top: 6px;
+      background: #ffffff;
+      border: 1.5px dashed var(--pink);
+      color: var(--pink);
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all .2s ease;
+      width: 100%;
+    }
+
+    .btn-add-event:hover {
+      background: var(--pink-soft);
+      transform: translateY(-1px);
+    }
+
+    /* Google Drive Pic for Caricature Box */
+    .drive-upload-card {
+      background: #FAF7FA;
+      border: 1.5px solid rgba(227, 28, 110, 0.18);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drive-card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .drive-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .drive-svg-logo {
+      flex-shrink: 0;
+    }
+
+    .drive-steps-list {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .drive-step {
+      font-size: 0.82rem;
+      color: var(--ink);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+
+    .drive-step span {
+      background: var(--pink);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .btn-launch-drive {
+      background: #ffffff;
+      border: 1.5px solid #4285F4;
+      color: #1a73e8;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all .2s ease;
+      box-shadow: 0 2px 8px rgba(66, 133, 244, 0.15);
+      width: 100%;
+      text-decoration: none;
+    }
+
+    .btn-launch-drive:hover {
+      background: #4285F4;
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(66, 133, 244, 0.3);
+    }
+
+    /* Caricature Reference Photos Showcase */
+    .caricature-ref-box {
+      margin-bottom: 20px;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(227, 28, 110, 0.16);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 4px 14px rgba(227, 28, 110, 0.05);
+    }
+
+    .caricature-ref-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .caricature-ref-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .caricature-ref-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #e6f7ec;
+      color: #0b7336;
+      border: 1px solid rgba(11, 115, 54, 0.2);
+    }
+
+    .caricature-ref-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .caricature-ref-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+
+    .caricature-ref-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .caricature-ref-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--pink);
+      box-shadow: 0 6px 18px rgba(227, 28, 110, 0.12);
+    }
+
+    .caricature-ref-img-wrap {
+      width: 100%;
+      height: 180px;
+      background: #f8f6f7;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .caricature-ref-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform .3s ease;
+    }
+
+    .caricature-ref-card:hover .caricature-ref-img {
+      transform: scale(1.05);
+    }
+
+    .caricature-ref-tag {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      background: rgba(36, 16, 22, 0.82);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .caricature-ref-zoom-hint {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(4px);
+      color: var(--ink);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    }
+
+    .caricature-ref-card-body {
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    .caricature-ref-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .caricature-ref-label .ref-status {
+      color: #0b7336;
+      font-size: 0.72rem;
+    }
+
+    .caricature-ref-sub {
+      font-size: 0.73rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* File Dropzone alternative */
+    .file-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .file-chip {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--ink);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Action Row / Submit Footer */
+    .submit-card {
+      background: linear-gradient(135deg, #ffffff 0%, rgba(255, 240, 245, 0.7) 100%);
+      border: 1.5px solid var(--pink-glow);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .submit-card h3 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .submit-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      max-width: 620px;
+      margin: 0 auto 20px;
+    }
+
+    .btn-main-share {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all .25s ease;
+      box-shadow: 0 4px 20px rgba(227, 28, 110, 0.35);
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .btn-main-share:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(227, 28, 110, 0.45);
+    }
+
+    .btn-reset-draft {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 0.78rem;
+      cursor: pointer;
+      text-decoration: underline;
+      margin-top: 14px;
+      display: inline-block;
+    }
+
+    .btn-reset-draft:hover {
+      color: #D32F2F;
+    }
+
+    /* Modal Backdrop & Dialog */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 5, 12, 0.65);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-dialog {
+      background: #ffffff;
+      border-radius: 18px;
+      max-width: 640px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
+      transform: translateY(12px) scale(0.98);
+      transition: transform .25s ease;
+    }
+
+    .modal-overlay.active .modal-dialog {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: #F4ECEE;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--ink);
+      font-weight: 700;
+      transition: all .2s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--pink);
+      color: #fff;
+    }
+
+    .modal-title {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .modal-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    /* Structured Preview Box */
+    .compressed-preview-wrap {
+      background: #FFF9F7;
+      border: 1px solid rgba(227, 28, 110, 0.18);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: ui-monospace, Menlo, Monaco, 'Courier New', monospace;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      max-height: 230px;
+      overflow-y: auto;
+      color: #331A24;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--pink);
+    }
+
+    /* Share Options Grid */
+    .share-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 520px) {
+      .share-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .btn-share-option {
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all .2s ease;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+      width: 100%;
+    }
+
+    .btn-share-wa {
+      background: var(--wa-green);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-share-wa:hover {
+      background: var(--wa-dark);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .btn-share-copy {
+      background: #F4EFF2;
+      border-color: var(--border);
+      color: var(--ink);
+    }
+
+    .btn-share-copy:hover {
+      border-color: var(--pink);
+      color: var(--pink);
+      background: #fff;
+    }
+
+    .btn-share-native {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(227, 28, 110, 0.25);
+    }
+
+    .btn-share-native:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .btn-share-email {
+      background: #2D2D2D;
+      color: #fff;
+    }
+
+    .btn-share-email:hover {
+      background: #111111;
+      transform: translateY(-1px);
+    }
+
+    .confirmation-banner {
+      background: #E8F5E9;
+      border: 1px solid #A5D6A7;
+      color: #2E7D32;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 0.84rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    /* Admin View Styles */
+    .admin-dialog {
+      max-width: 860px;
+    }
+
+    .admin-stats {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .admin-table-wrap {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow-x: auto;
+      max-height: 400px;
+      margin-bottom: 16px;
+    }
+
+    table.admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      text-align: left;
+    }
+
+    table.admin-table th {
+      background: #FDF4F6;
+      padding: 10px 12px;
+      font-weight: 700;
+      color: var(--ink);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    table.admin-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink);
+    }
+
+    table.admin-table tr:hover td {
+      background: #FFFDFD;
+    }
+
+    .admin-actions-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #241016;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      z-index: 2000;
+      opacity: 0;
+      transition: all .25s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(180deg, var(--cream) 0%, #FFF0F5 100%);
+      border-top: 1px solid var(--border);
+      padding: 32px 0 20px;
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-top: auto;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Navigation -->
+  <header>
+    <div class="nav">
+      <a href="index.html" class="brand" title="Bright Screen Invites">
+        <img src="Asset 1.png" alt="Bright Screen Invites" class="brand-logo-img">
+      </a>
+      <div class="nav-actions">
+        <!-- Autosave Indicator -->
+        <div class="autosave-pill" id="autosaveStatusBadge" title="Your inputs are saved automatically as you type">
+          <span class="autosave-dot"></span>
+          <span id="autosaveStatusText">Autosave: Active</span>
+        </div>
+        <a href="index.html" class="nav-btn nav-btn-outline">&larr; Back to Designs</a>
+        <button type="button" class="nav-btn nav-btn-admin" onclick="openAdminModal()">Admin Access</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Context Header -->
+  <section class="form-hero">
+    <div class="wrap">
+      <div class="hero-badge-wrap">
+        <div class="sample-pill" id="selectedSampleBadge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <span id="badgeSampleName">Custom Invitation Suite</span>
+        </div>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="sample-link-pill" id="sampleLinkPreview" style="display:none">
+          🔗 View Design Sample ↗
+        </a>
+      </div>
+      <h1>Fill Your Wedding Invitation Details</h1>
+      <p>Please enter your wedding, couple, and function details below. All inputs are saved automatically. Once complete, your details will be compressed into a structured summary that you can instantly share via WhatsApp or across any platform.</p>
+    </div>
+  </section>
+
+  <!-- Form Body -->
+  <main>
+    <div class="wrap">
+      <form id="weddingDetailsForm" class="form-box" onsubmit="handleFormSubmit(event)">
+
+        <!-- DESIGN SELECTION CARD -->
+        <section class="form-card" style="border-left: 4px solid var(--pink);margin-bottom:20px">
+          <div class="card-header" style="margin-bottom: 12px;">
+            <div class="card-header-left">
+              <div class="step-badge" style="background: var(--pink);">★</div>
+              <div class="card-title-group">
+                <h2>Selected Design Details</h2>
+                <p>The invitation template or sample you have chosen, with its directed preview link.</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label" for="fieldSelectedSample">Selected Design / Sample Name <span class="req">*</span></label>
+              <input type="text" id="fieldSelectedSample" name="selectedSample" class="input-control" list="sampleDesignsList" placeholder="e.g. Caricature Wedding Invite (Bhavya & Adarsh)" required oninput="onSampleNameChange(); triggerAutoSave()">
+              <datalist id="sampleDesignsList">
+                <option value="Royal Wedding Website (Parth & Nidhi)"></option>
+                <option value="Cinematic Video Website (Ashish & Aditi)"></option>
+                <option value="Caricature Wedding Invite (Bhavya & Adarsh)"></option>
+                <option value="Caricature Wedding Invite (Prachi & Sahil)"></option>
+                <option value="Caricature Wedding Invite (Sanvita & Manjeet)"></option>
+                <option value="Engagement Invite (Vishal & Warsha)"></option>
+                <option value="Engagement Invite (Ajay & Shelly)"></option>
+                <option value="Engagement Invite (Akshay & Shreya)"></option>
+                <option value="Engagement Invite (Abhishek & Kashish)"></option>
+                <option value="Save the Date (Nishant & Shashank)"></option>
+                <option value="Save the Date (Shrishti & Aniket)"></option>
+                <option value="Save the Date (Ishika & Vivan)"></option>
+                <option value="Wardrobe Planner (Vinay & Garima)"></option>
+                <option value="Royal Wedding Invite (Eesha & Shashank)"></option>
+                <option value="Royal Wedding Invite (Anshul & Aishwarya)"></option>
+                <option value="South Indian Wedding Invite (Arun & Sowmya)"></option>
+                <option value="South Indian Wedding Invite (Sneha & Sathvik)"></option>
+                <option value="Muslim Wedding Invite (Abdul & Julekha)"></option>
+                <option value="Catholic Wedding Invite (Aisha & Sahil)"></option>
+                <option value="Banana Leaf Card"></option>
+                <option value="Welcome board"></option>
+                <option value="Sign board"></option>
+                <option value="Castle Mandawa Save The Date"></option>
+                <option value="Classic Floral Wedding Card"></option>
+              </datalist>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="fieldSampleLink">
+                Directed Link of Selected Design <span class="opt">(Auto-filled / Optional)</span>
+              </label>
+              <div style="display:flex;gap:8px;align-items:center">
+                <input type="url" id="fieldSampleLink" name="sampleLink" class="input-control" placeholder="https://www.youtube.com/shorts/... or website link" oninput="onSampleLinkChange(); triggerAutoSave()">
+                <a href="#" id="btnDirectLinkPreview" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-outline" style="display:none;white-space:nowrap;padding:10px 14px;border-color:var(--pink);color:var(--pink)" title="Open Directed Link in new tab">
+                  Open ↗
+                </a>
+              </div>
+              <span class="input-hint">Direct link to the selected design sample (YouTube, Instagram, or live website).</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 1: Contact Details -->
+        <section class="form-card">
+          <div class="card-header">
+            <div class="card-header-left">
+              <div class="step-badge">1</div>
+              <div class="card-title-group">
+                <h2>Contact Information</h2>
+                <p>Who should we reach out to for previews, approvals, and delivery?</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="field-group">
+              <label class="field-label" for="clientName">Full Name <span class="req">*</span></label>
+              <input type="text" id="clientName" name="clientName" class="input-control" placeholder="e.g. Aman Sharma" required oninput="triggerAutoSave()">
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="clientWhatsapp">WhatsApp Number <span class="req">*</span></label>
+              <input type="tel" id="clientWhatsapp" name="clientWhatsapp" class="input-control" placeholder="e.g. +91 98765 43210" required oninput="triggerAutoSave()">
+              <span class="input-hint">Include country code (e.g. +91 for India)</span>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="clientEmail">Email Address <span class="req">*</span></label>
+              <input type="email" id="clientEmail" name="clientEmail" class="input-control" placeholder="e.g. aman@example.com" required oninput="triggerAutoSave()">
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: Couple & Family Details -->
+        <section class="form-card">
+          <div class="card-header">
+            <div class="card-header-left">
+              <div class="step-badge">2</div>
+              <div class="card-title-group">
+                <h2>Couple &amp; Family Details</h2>
+                <p>Names of the couple, parents, and grandparents to be featured on the card.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <!-- Bride Column -->
+            <div class="grid-1" style="background:#FFFBFD;padding:16px;border-radius:12px;border:1px solid rgba(227,28,110,0.12)">
+              <div class="field-group">
+                <label class="field-label" for="brideName">Bride's Full Name <span class="req">*</span></label>
+                <input type="text" id="brideName" name="brideName" class="input-control" placeholder="e.g. Sanjana Verma" required oninput="triggerAutoSave()">
+              </div>
+
+              <div class="field-group">
+                <label class="field-label" for="brideParents">Bride's Parents &amp; Grandparents <span class="opt">(Optional)</span></label>
+                <textarea id="brideParents" name="brideParents" class="input-control" placeholder="e.g. Daughter of Mrs. Sunita &amp; Mr. Rajesh Verma&#10;Granddaughter of Smt. Kamala &amp; Late Shri Ram Verma" oninput="triggerAutoSave()"></textarea>
+                <span class="input-hint">Mention parents, grandparents, or family lineage to display.</span>
+              </div>
+            </div>
+
+            <!-- Groom Column -->
+            <div class="grid-1" style="background:#FFFBFD;padding:16px;border-radius:12px;border:1px solid rgba(227,28,110,0.12)">
+              <div class="field-group">
+                <label class="field-label" for="groomName">Groom's Full Name <span class="req">*</span></label>
+                <input type="text" id="groomName" name="groomName" class="input-control" placeholder="e.g. Aman Sharma" required oninput="triggerAutoSave()">
+              </div>
+
+              <div class="field-group">
+                <label class="field-label" for="groomParents">Groom's Parents &amp; Grandparents <span class="opt">(Optional)</span></label>
+                <textarea id="groomParents" name="groomParents" class="input-control" placeholder="e.g. Son of Mrs. Geeta &amp; Mr. Ramesh Sharma&#10;Grandson of Smt. Shanti &amp; Late Shri Om Sharma" oninput="triggerAutoSave()"></textarea>
+                <span class="input-hint">Mention parents, grandparents, or family lineage to display.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: Event Functions, Dates, Timings & Venues -->
+        <section class="form-card">
+          <div class="card-header">
+            <div class="card-header-left">
+              <div class="step-badge">3</div>
+              <div class="card-title-group">
+                <h2>Event Functions &amp; Venues</h2>
+                <p>Add all ceremony functions, dates, timings, and venues. You can add custom events as needed.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="events-list" id="eventsContainer">
+            <!-- Event 1 Default Card -->
+            <div class="event-card" data-event-index="1">
+              <div class="event-card-top">
+                <span class="event-tag">Event #1</span>
+              </div>
+              <div class="grid-2" style="margin-bottom:12px">
+                <div class="field-group">
+                  <label class="field-label">Function / Event Name <span class="req">*</span></label>
+                  <input type="text" class="input-control event-name" list="commonEventsList" placeholder="e.g. Wedding Ceremony / Sangeet / Mehendi" value="Wedding Ceremony" required oninput="triggerAutoSave()">
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Event Date <span class="req">*</span></label>
+                  <input type="date" class="input-control event-date" required oninput="triggerAutoSave()">
+                </div>
+              </div>
+              <div class="grid-2">
+                <div class="field-group">
+                  <label class="field-label">Event Timings <span class="req">*</span></label>
+                  <input type="text" class="input-control event-time" placeholder="e.g. 07:00 PM onwards / Baraat 6 PM" required oninput="triggerAutoSave()">
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Venue &amp; City <span class="req">*</span></label>
+                  <input type="text" class="input-control event-venue" placeholder="e.g. Castle Mandawa, Shekhawati, Rajasthan" required oninput="triggerAutoSave()">
+                </div>
+              </div>
+              <div class="field-group" style="margin-top:12px">
+                <label class="field-label">Dress Code / Attire / Notes <span class="opt">(Optional)</span></label>
+                <input type="text" class="input-control event-dress" placeholder="e.g. Regal Traditional / Pastel Florals" oninput="triggerAutoSave()">
+              </div>
+            </div>
+          </div>
+
+          <!-- Common Events Datalist for Quick Autocomplete -->
+          <datalist id="commonEventsList">
+            <option value="Save The Date"></option>
+            <option value="Ring Ceremony / Engagement"></option>
+            <option value="Roka Ceremony"></option>
+            <option value="Haldi Ceremony"></option>
+            <option value="Mehendi Celebration"></option>
+            <option value="Sangeet &amp; Cocktail Night"></option>
+            <option value="Wedding Ceremony / Anand Karaj / Nikah"></option>
+            <option value="Reception Dinner"></option>
+            <option value="Wardrobe Planner"></option>
+          </datalist>
+
+          <!-- Add Custom Event Button -->
+          <button type="button" class="btn-add-event" onclick="addCustomEvent()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            + Add Another Function / Custom Event
+          </button>
+        </section>
+
+        <!-- SECTION 4: Short Message, Quote & Additional Content -->
+        <section class="form-card">
+          <div class="card-header">
+            <div class="card-header-left">
+              <div class="step-badge">4</div>
+              <div class="card-title-group">
+                <h2>Invitation Quote &amp; RSVP</h2>
+                <p>Personalized quotes, wedding hashtags, and RSVP contacts (optional).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label" for="weddingHashtag">Wedding Hashtag <span class="opt">(Optional)</span></label>
+              <input type="text" id="weddingHashtag" name="weddingHashtag" class="input-control" placeholder="e.g. #SanjanaWedsAman" oninput="triggerAutoSave()">
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="rsvpDetails">RSVP Contacts <span class="opt">(Optional)</span></label>
+              <input type="text" id="rsvpDetails" name="rsvpDetails" class="input-control" placeholder="e.g. Sharma Family: +91 98765 00000" oninput="triggerAutoSave()">
+            </div>
+          </div>
+
+          <div class="field-group" style="margin-top:14px">
+            <label class="field-label" for="customQuote">Invitation Quote / Tagline / Blessing <span class="opt">(Optional)</span></label>
+            <textarea id="customQuote" name="customQuote" class="input-control" placeholder="e.g. 'Together with our families, we invite you to celebrate our love and new beginnings...' or traditional sloka / verse" oninput="triggerAutoSave()"></textarea>
+          </div>
+
+          <div class="field-group" style="margin-top:14px">
+            <label class="field-label" for="additionalNotes">Special Requests / Instructions <span class="opt">(Optional)</span></label>
+            <input type="text" id="additionalNotes" name="additionalNotes" class="input-control" placeholder="e.g. Prefer peach gold background, song choice: Kesariya, caricature outfits from photos" oninput="triggerAutoSave()">
+          </div>
+        </section>
+
+        <!-- SECTION 5: Pic for Caricature (Optional) -->
+        <section class="form-card">
+          <div class="card-header">
+            <div class="card-header-left">
+              <div class="step-badge">5</div>
+              <div class="card-title-group">
+                <h2>Pic for Caricature <span class="opt">(Optional)</span></h2>
+                <p>Share the pic from front angle for bride and groom and It should not be in selfie.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-1">
+            <!-- PHOTO REFERENCE GUIDE (IDEAL EXAMPLES) -->
+            <div class="caricature-ref-box">
+              <div class="caricature-ref-header">
+                <span class="caricature-ref-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  Caricature Photo Reference Examples (Front Angle · No Selfie)
+                </span>
+                <span class="caricature-ref-badge">✓ Recommended Format</span>
+              </div>
+
+              <div class="caricature-ref-grid">
+                <!-- Example 1: Bride Reference -->
+                <div class="caricature-ref-card" onclick="openImageLightbox('Thumbnails/ref-bride-caricature.jpg', 'Bride Reference Photo: Clear front angle at eye level, showing facial features and expression without selfie distortion.')" title="Click to view bride reference photo">
+                  <div class="caricature-ref-img-wrap">
+                    <img src="Thumbnails/ref-bride-caricature.jpg" alt="Bride Reference Photo - Front Angle" class="caricature-ref-img" loading="lazy">
+                    <span class="caricature-ref-tag">Bride Reference</span>
+                    <span class="caricature-ref-zoom-hint">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                      Tap
+                    </span>
+                  </div>
+                  <div class="caricature-ref-card-body">
+                    <div class="caricature-ref-label">
+                      <span>Bride (Front View)</span>
+                      <span class="ref-status">✓ Ideal</span>
+                    </div>
+                    <div class="caricature-ref-sub">Clear face &amp; natural smile from straight camera angle</div>
+                  </div>
+                </div>
+
+                <!-- Example 2: Couple Reference -->
+                <div class="caricature-ref-card" onclick="openImageLightbox('Thumbnails/ref-couple-caricature.jpg', 'Couple Reference Photo: Clear front-angle portrait showing bride & groom together with natural smiles and sharp facial features.')" title="Click to view couple reference photo">
+                  <div class="caricature-ref-img-wrap">
+                    <img src="Thumbnails/ref-couple-caricature.jpg" alt="Couple Reference Photo - Front Angle" class="caricature-ref-img" loading="lazy">
+                    <span class="caricature-ref-tag">Couple Reference</span>
+                    <span class="caricature-ref-zoom-hint">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                      Tap
+                    </span>
+                  </div>
+                  <div class="caricature-ref-card-body">
+                    <div class="caricature-ref-label">
+                      <span>Couple (Front Angle)</span>
+                      <span class="ref-status">✓ Ideal</span>
+                    </div>
+                    <div class="caricature-ref-sub">Clear front portrait showing both faces &amp; natural expressions</div>
+                  </div>
+                </div>
+
+                <!-- Example 3: Groom Reference -->
+                <div class="caricature-ref-card" onclick="openImageLightbox('Thumbnails/ref-groom-caricature.jpg', 'Groom Reference Photo: Front angle with direct eye contact, good lighting, and no head tilt.')" title="Click to view groom reference photo">
+                  <div class="caricature-ref-img-wrap">
+                    <img src="Thumbnails/ref-groom-caricature.jpg" alt="Groom Reference Photo - Front Angle" class="caricature-ref-img" loading="lazy">
+                    <span class="caricature-ref-tag">Groom Reference</span>
+                    <span class="caricature-ref-zoom-hint">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                      Tap
+                    </span>
+                  </div>
+                  <div class="caricature-ref-card-body">
+                    <div class="caricature-ref-label">
+                      <span>Groom (Front View)</span>
+                      <span class="ref-status">✓ Ideal</span>
+                    </div>
+                    <div class="caricature-ref-sub">Straight front angle, eye level with sharp facial clarity</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:10px;display:flex;align-items:center;gap:6px;font-size:0.77rem;color:var(--muted)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <span><strong>Tips:</strong> Avoid selfie mode, extreme side angles, sunglasses, or blurred pictures for the best caricature artwork.</span>
+              </div>
+            </div>
+
+            <div class="drive-upload-card">
+              <div class="drive-card-content">
+                <div class="drive-brand-row">
+                  <svg viewBox="0 0 87.3 78" width="38" height="38" class="drive-svg-logo">
+                    <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
+                    <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44c-.8 1.4-1.2 2.95-1.2 4.5h27.5z" fill="#00ac47"/>
+                    <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.5l5.85 10.15z" fill="#ea4335"/>
+                    <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
+                    <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
+                    <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
+                  </svg>
+                  <div>
+                    <h3 style="font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:2px">Upload Caricature Pics to Google Drive</h3>
+                    <p style="font-size:0.82rem;color:var(--muted)">Share the pic from front angle for bride and groom and It should not be in selfie.</p>
+                  </div>
+                </div>
+
+                <div class="drive-steps-list">
+                  <div class="drive-step"><span>1</span> Tap the button below to create or open a new folder in Google Drive on your device.</div>
+                  <div class="drive-step"><span>2</span> Upload clear front-angle photos of bride and groom (<strong>no selfie photos</strong>).</div>
+                  <div class="drive-step"><span>3</span> Set folder access to <strong>"Anyone with the link can view"</strong> and copy the link.</div>
+                  <div class="drive-step"><span>4</span> Paste the Google Drive link in the input box below.</div>
+                </div>
+
+                <a href="https://drive.google.com/drive/my-drive" target="_blank" rel="noopener noreferrer" class="btn-launch-drive" onclick="openGoogleDriveToUpload(event)">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  Upload Pic (Create Folder on Drive) ↗
+                </a>
+              </div>
+
+              <div class="field-group" style="margin-top:16px">
+                <label class="field-label" for="cloudDriveLink">
+                  Paste Your Google Drive Link Here <span class="opt">(Optional)</span>
+                </label>
+                <input type="url" id="cloudDriveLink" name="cloudDriveLink" class="input-control" placeholder="https://drive.google.com/drive/folders/..." oninput="triggerAutoSave(); checkDriveLinkValue()">
+                <div id="driveLinkFeedback" style="display:none;margin-top:8px;font-size:0.82rem;color:#0b7336;font-weight:600;align-items:center;gap:6px">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Google Drive link attached! Ready to complete and share.</span>
+                </div>
+                <span class="input-hint">After uploading your photos on Google Drive, paste the folder share link here to complete the form.</span>
+              </div>
+            </div>
+
+            <!-- Optional direct file selector fallback -->
+            <div style="margin-top:6px">
+              <label class="field-label" style="font-size:0.78rem;color:var(--muted)">
+                Or attach images directly from camera roll: <span class="opt">(Optional)</span>
+              </label>
+              <input type="file" id="mediaFiles" name="mediaFiles" multiple accept="image/*,.pdf,.doc,.docx" onchange="handleFileSelection(event)" style="font-size:0.8rem;margin-top:4px">
+              <div class="file-chip-list" id="fileChipList"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SUBMIT & SHARE ACTION CARD -->
+        <div class="submit-card">
+          <h3>Ready to Customize Your Invitation?</h3>
+          <p>Review and share your compressed, structured details directly with our design team via WhatsApp, Email, or across any application.</p>
+          <button type="submit" class="btn-main-share" id="btnSubmitShare">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            Review &amp; Share Details
+          </button>
+          <div>
+            <button type="button" class="btn-reset-draft" onclick="clearFormDraft()">Clear draft and start fresh</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- SHARE & CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="shareModal">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" onclick="closeShareModal()">&times;</button>
+      <div style="text-align:center;margin-bottom:14px">
+        <span style="font-size:2rem">✨</span>
+        <h2 class="modal-title">Your Details Are Ready!</h2>
+        <p class="modal-sub">Your wedding invitation details have been saved and compressed into a structured summary. Choose how you would like to share it below:</p>
+      </div>
+
+      <!-- Compressed Structured Text Preview -->
+      <div class="compressed-preview-wrap" id="compressedSummaryText"></div>
+
+      <!-- Share Action Buttons -->
+      <div class="share-grid">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-share-option btn-share-wa" id="waShareBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.301-.15-1.782-.88-2.058-.98-.276-.1-.476-.15-.677.15-.2.301-.776.98-.952 1.18-.175.201-.351.226-.652.076-.301-.15-1.27-.468-2.42-1.493-.895-.798-1.5-1.784-1.675-2.085-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.176.2-.301.301-.502.1-.201.05-.376-.025-.527-.075-.15-.677-1.632-.927-2.233-.244-.585-.492-.505-.676-.514l-.577-.01c-.2 0-.526.075-.802.376-.276.301-1.053 1.028-1.053 2.508 0 1.48 1.078 2.909 1.229 3.11.15.2 2.122 3.24 5.14 4.544.718.31 1.279.495 1.716.634.722.23 1.379.198 1.899.12.579-.087 1.782-.728 2.033-1.43.25-.703.25-1.305.175-1.43-.075-.125-.276-.2-.577-.35zM12.04 21.784h-.006a9.78 9.78 0 0 1-4.99-1.373l-.358-.213-3.708.973.99-3.615-.233-.371a9.788 9.788 0 0 1-1.498-5.207c0-5.408 4.4-9.808 9.808-9.808a9.76 9.76 0 0 1 6.936 2.873 9.76 9.76 0 0 1 2.868 6.936c0 5.41-4.4 9.808-9.807 9.808zm8.308-18.117A11.716 11.716 0 0 0 12.04 0C5.398 0 .012 5.386.012 12.029a11.69 11.69 0 0 0 1.79 6.223L0 24l5.908-1.55a11.74 11.74 0 0 0 6.132 1.71h.005c6.641 0 12.027-5.387 12.027-12.03 0-3.212-1.251-6.232-3.724-8.463z"/>
+          </svg>
+          Send via WhatsApp
+        </a>
+
+        <button type="button" class="btn-share-option btn-share-copy" onclick="copyStructuredMessage()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          Copy Formatted Text
+        </button>
+
+        <button type="button" class="btn-share-option btn-share-native" onclick="shareViaNativeSheet()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          Share Across Apps
+        </button>
+
+        <a href="#" class="btn-share-option btn-share-email" id="emailShareBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Send via Email
+        </a>
+      </div>
+
+      <div class="confirmation-banner">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Your response has also been securely logged into our internal system. We will contact you shortly!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- REFERENCE IMAGE LIGHTBOX MODAL -->
+  <div class="modal-overlay" id="imageLightboxModal">
+    <div class="modal-dialog" style="max-width:540px;padding:18px;text-align:center">
+      <button type="button" class="modal-close-btn" onclick="closeImageLightbox()">&times;</button>
+      <div style="margin-bottom:12px;text-align:left">
+        <h3 id="lightboxTitle" style="font-size:1.05rem;font-weight:700;color:var(--ink)">Caricature Photo Reference</h3>
+      </div>
+      <div style="background:#f4f0f2;border-radius:12px;padding:8px;overflow:hidden">
+        <img id="lightboxImg" src="" alt="Enlarged Reference Example" style="max-width:100%;max-height:68vh;border-radius:8px;object-fit:contain;display:block;margin:0 auto">
+      </div>
+      <p id="lightboxCaption" style="font-size:0.83rem;color:var(--muted);margin-top:12px;line-height:1.45;text-align:left;background:rgba(227,28,110,0.05);padding:10px 14px;border-radius:8px;border-left:3px solid var(--pink)"></p>
+    </div>
+  </div>
+
+  <!-- ADMIN ACCESS MODAL (FOR SITE OWNER) -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-dialog admin-dialog">
+      <button type="button" class="modal-close-btn" onclick="closeAdminModal()">&times;</button>
+      <h2 class="modal-title">Admin Submissions Viewer</h2>
+      <p class="modal-sub">View and manage all client submitted invitation forms stored in this browser session.</p>
+
+      <div class="admin-stats">
+        <div class="stat-pill">Total Submissions: <span id="adminTotalCount" style="color:var(--pink)">0</span></div>
+        <div class="stat-pill">Latest: <span id="adminLatestTime">None</span></div>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Sample / Design</th>
+              <th>Design Link</th>
+              <th>Client</th>
+              <th>WhatsApp</th>
+              <th>Couple Names</th>
+              <th>Events</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody">
+            <tr>
+              <td colspan="8" style="text-align:center;color:var(--muted);padding:24px">No submissions saved yet.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="admin-actions-bar">
+        <button type="button" class="nav-btn nav-btn-outline" onclick="exportSubmissionsJSON()">Export to JSON</button>
+        <button type="button" class="nav-btn nav-btn-outline" onclick="exportSubmissionsCSV()">Export to CSV</button>
+        <button type="button" class="nav-btn" style="background:#FFEAEA;color:#D32F2F;border:1px solid #FFCDD2" onclick="clearAllSubmissions()">Clear All Submissions</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Element -->
+  <div class="toast-msg" id="toastMsg">Message copied to clipboard!</div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap footer-content">
+      <span>&copy; 2026 Bright Screen Invites. All rights reserved.</span>
+      <span>Luxury Digital Invitations &amp; Event Stationery</span>
+    </div>
+  </footer>
+
+  <!-- Core Script -->
+  <script>
+    let uploadedFileNames = [];
+    let currentStructuredText = '';
+    let customEventCount = 1;
+    let autosaveTimer = null;
+    const DRAFT_STORAGE_KEY = 'bsi_form_draft_v1';
+    const SUBMISSIONS_STORAGE_KEY = 'bsi_submissions_db';
+
+    // Complete Catalog Mapping for Instant Directed Design Links
+    const DESIGN_CATALOG_LINKS = {
+      "Royal Wedding Website (Parth & Nidhi)": "https://parth-nidhi-wedding-invite-8tyj.vercel.app/",
+      "Cinematic Video Website (Ashish & Aditi)": "https://ashishandaditi.vercel.app/",
+      "Banana Leaf Card": "https://www.instagram.com/p/DDJesxaSObt/",
+      "Welcome board": "https://www.instagram.com/p/DCrVcutyAPk/",
+      "Sign board": "https://www.instagram.com/p/DCoK7JZS6Tx/",
+      "Castle Mandawa Save The Date": "https://photos.google.com/album/AF1QipOLXwhIN4jUQNP3u4fj98xzVrhbflj6FtTEJ6Ln/photo/AF1QipNu5b1ktFX0rj0T-AwVRG62WrEHWIMFqCE0T7b1",
+      "Classic Floral Wedding Card": "https://wa.me/918745028722",
+      "Vishal & Warsha": "https://www.youtube.com/shorts/hIC8-s4DmLM",
+      "Ajay & Shelly": "https://www.youtube.com/shorts/K_dlrBiKoaU",
+      "Akshay & Shreya": "https://www.youtube.com/shorts/h-l5J6Feb9w",
+      "Abhishek & Kashish": "https://www.youtube.com/shorts/ROsemDeRD7w",
+      "Shashank & Sushmita": "https://www.youtube.com/shorts/NIUftm-iUck",
+      "Mahira & Shivam": "https://www.youtube.com/shorts/VtKV-_-MVHs",
+      "Saurabh & Shashi": "https://www.youtube.com/shorts/bvt5jogpNK8",
+      "Rishi & Garima": "https://www.youtube.com/shorts/FvsixfRhuns",
+      "Akansha & Shivam": "https://www.youtube.com/shorts/q3YvP1Ok2pI",
+      "Namrata & Athith": "https://www.youtube.com/shorts/oe9c15UKzUs",
+      "Kanika & Shrey": "https://www.youtube.com/shorts/W4eXcGn3CCE",
+      "Kabir & Ananya": "https://www.youtube.com/shorts/Tle2l3nBP_s",
+      "Aarav & Meera": "https://www.youtube.com/shorts/dx8dWeEN8wo",
+      "Nishant & Shashank": "https://www.youtube.com/shorts/cc2OC0STEVY",
+      "Shrishti & Aniket": "https://www.youtube.com/shorts/c8_8iwB_9Ds",
+      "Ishika & Vivan": "https://www.youtube.com/shorts/g9tkxAoOrzU",
+      "Nitish & Anupma": "https://www.youtube.com/shorts/8ZyS8_fME_0",
+      "Shreyansh & Kajal": "https://www.youtube.com/shorts/bfuf-gLfWVs",
+      "Khushboo & Govind": "https://www.youtube.com/shorts/b75pkjhZTa8",
+      "Darshan & Nehal": "https://www.youtube.com/shorts/IsfKYBhDERU",
+      "Akshay & Yashica": "https://www.youtube.com/shorts/a0m0ws8q4fo",
+      "Vinay & Garima": "https://www.youtube.com/shorts/KZx076AigXU",
+      "Sakshi & Harpreet": "https://www.youtube.com/shorts/Q3QTM_wQH2s",
+      "Eesha & Shashank": "https://www.youtube.com/shorts/13Bp0j17940",
+      "Anshul & Aishwarya": "https://www.youtube.com/shorts/MpEJQFvLO48",
+      "Arun & Sowmya": "https://www.youtube.com/shorts/RMc1elOgLOw",
+      "Sneha & Sathvik": "https://www.youtube.com/shorts/9CepdRSIbqA",
+      "Prateek & Varsha": "https://www.youtube.com/shorts/lSGI9qocZKk",
+      "Raghvi & Atishay": "https://www.youtube.com/shorts/edArduYd0ZY",
+      "Abdul & Julekha": "https://www.youtube.com/shorts/KbXr_RKusbM",
+      "Aisha & Sahil": "https://www.youtube.com/shorts/ihdw6ZZSpYs",
+      "CI-42": "https://www.youtube.com/shorts/Fh3rSEFxsfg",
+      "Bhavya & Adarsh": "https://www.youtube.com/shorts/0j19NklmPs0",
+      "Prachi & Sahil": "https://www.youtube.com/shorts/6A5NiTt_Egc",
+      "Sanvita & Manjeet": "https://www.youtube.com/shorts/vIDNGRAf9-U",
+      "Adkansha & Shivam": "https://www.youtube.com/shorts/qWATQchkGmI",
+      "Mahek & Manish": "https://www.youtube.com/shorts/SUb-1QTjrGI",
+      "Dr. Lovish & Dr. Cherry": "https://www.youtube.com/shorts/r_3QMWk9r0I",
+      "Neeraj & Namrata": "https://www.youtube.com/shorts/t3pP08lL2M0",
+      "Chandan & Jia": "https://www.youtube.com/shorts/Ya5nC8q3GT0",
+      "Ronita & Chirag": "https://www.youtube.com/shorts/HJZuYNCbhzs",
+      "Vishali & Prateek": "https://www.youtube.com/shorts/kVbw9otRhWs",
+      "Amit & Ananya": "https://www.youtube.com/shorts/blq7HRzIkc4",
+      "Apoorva & Vishal": "https://www.youtube.com/shorts/j6YBAA0CtDs",
+      "Sukhmani & Hargunpreet": "https://www.youtube.com/shorts/CY0dgxc75d4"
+    };
+
+    function lookupDirectDesignLink(title) {
+      if (!title) return '';
+      const clean = title.toLowerCase().trim();
+      for (const [key, link] of Object.entries(DESIGN_CATALOG_LINKS)) {
+        const kClean = key.toLowerCase();
+        if (clean === kClean || clean.includes(kClean) || kClean.includes(clean)) {
+          return link;
+        }
+      }
+      return '';
+    }
+
+    function onSampleNameChange() {
+      const nameInput = document.getElementById('fieldSelectedSample');
+      const linkInput = document.getElementById('fieldSampleLink');
+      const badgeName = document.getElementById('badgeSampleName');
+      const nameVal = nameInput ? nameInput.value.trim() : '';
+
+      if (badgeName) badgeName.textContent = nameVal || 'Custom Wedding Invitation';
+
+      const foundLink = lookupDirectDesignLink(nameVal);
+      if (foundLink && linkInput && !linkInput.value.trim()) {
+        linkInput.value = foundLink;
+      }
+      onSampleLinkChange();
+    }
+
+    function onSampleLinkChange() {
+      const linkInput = document.getElementById('fieldSampleLink');
+      const linkVal = linkInput ? linkInput.value.trim() : '';
+      const previewBtn = document.getElementById('btnDirectLinkPreview');
+      const sampleLinkPreview = document.getElementById('sampleLinkPreview');
+
+      if (linkVal) {
+        if (previewBtn) {
+          previewBtn.href = linkVal;
+          previewBtn.style.display = 'inline-flex';
+        }
+        if (sampleLinkPreview) {
+          sampleLinkPreview.href = linkVal;
+          sampleLinkPreview.style.display = 'inline-flex';
+        }
+      } else {
+        if (previewBtn) previewBtn.style.display = 'none';
+        if (sampleLinkPreview) sampleLinkPreview.style.display = 'none';
+      }
+    }
+
+    // Parse URL Query Params on Load
+    function initSampleFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const sampleParam = params.get('sample') || params.get('title') || params.get('name') || '';
+      const sampleLink = params.get('link') || params.get('url') || params.get('sampleLink') || '';
+
+      const sampleBadgeName = document.getElementById('badgeSampleName');
+      const sampleInput = document.getElementById('fieldSelectedSample');
+      const linkInput = document.getElementById('fieldSampleLink');
+      const sampleLinkPreview = document.getElementById('sampleLinkPreview');
+      const previewBtn = document.getElementById('btnDirectLinkPreview');
+
+      if (sampleParam) {
+        const cleanSample = decodeURIComponent(sampleParam).trim();
+        if (sampleBadgeName) sampleBadgeName.textContent = cleanSample;
+        if (sampleInput) sampleInput.value = cleanSample;
+        document.title = `Fill Details: ${cleanSample} | Bright Screen Invites`;
+      } else if (sampleInput && !sampleInput.value) {
+        if (sampleBadgeName) sampleBadgeName.textContent = 'Custom Wedding Invitation';
+        sampleInput.value = 'Custom Wedding Invitation';
+      }
+
+      let cleanLink = sampleLink ? decodeURIComponent(sampleLink).trim() : '';
+      if (!cleanLink && sampleParam) {
+        cleanLink = lookupDirectDesignLink(decodeURIComponent(sampleParam).trim()) || '';
+      }
+
+      if (cleanLink && linkInput) {
+        linkInput.value = cleanLink;
+        if (sampleLinkPreview) {
+          sampleLinkPreview.href = cleanLink;
+          sampleLinkPreview.style.display = 'inline-flex';
+        }
+        if (previewBtn) {
+          previewBtn.href = cleanLink;
+          previewBtn.style.display = 'inline-flex';
+        }
+      }
+
+      // Check if ?admin=true is in URL
+      if (params.get('admin') === 'true') {
+        openAdminModal();
+      }
+    }
+
+    // Direct to Google Drive to create folder/upload pics
+    function openGoogleDriveToUpload(e) {
+      showToast('Opening Google Drive! Create a new folder, upload front-angle photos, and paste the folder link below.');
+    }
+
+    // Real-time Drive Link Confirmation
+    function checkDriveLinkValue() {
+      const input = document.getElementById('cloudDriveLink');
+      const feedback = document.getElementById('driveLinkFeedback');
+      if (input && feedback) {
+        if (input.value.trim().length > 5) {
+          feedback.style.display = 'inline-flex';
+        } else {
+          feedback.style.display = 'none';
+        }
+      }
+    }
+
+    // Add Custom Event Row
+    function addCustomEvent(data = null) {
+      customEventCount++;
+      const container = document.getElementById('eventsContainer');
+      createEventCardElement(customEventCount, data);
+      triggerAutoSave();
+    }
+
+    function createEventCardElement(index, data = null) {
+      const container = document.getElementById('eventsContainer');
+      const eventCard = document.createElement('div');
+      eventCard.className = 'event-card';
+      eventCard.dataset.eventIndex = index;
+
+      const nameVal = data?.name || '';
+      const dateVal = data?.date || '';
+      const timeVal = data?.time || '';
+      const venueVal = data?.venue || '';
+      const dressVal = data?.dress || '';
+
+      eventCard.innerHTML = `
+        <div class="event-card-top">
+          <span class="event-tag">Event #${index}</span>
+          <button type="button" class="btn-remove-event" onclick="removeEventCard(this)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="12" x2="18" y2="18"></line>
+            </svg>
+            Remove
+          </button>
+        </div>
+        <div class="grid-2" style="margin-bottom:12px">
+          <div class="field-group">
+            <label class="field-label">Function / Event Name <span class="req">*</span></label>
+            <input type="text" class="input-control event-name" list="commonEventsList" placeholder="e.g. Sangeet / Mehendi / Reception" value="${nameVal}" required oninput="triggerAutoSave()">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Event Date <span class="req">*</span></label>
+            <input type="date" class="input-control event-date" value="${dateVal}" required oninput="triggerAutoSave()">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field-group">
+            <label class="field-label">Event Timings <span class="req">*</span></label>
+            <input type="text" class="input-control event-time" placeholder="e.g. 08:00 PM onwards" value="${timeVal}" required oninput="triggerAutoSave()">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Venue &amp; City <span class="req">*</span></label>
+            <input type="text" class="input-control event-venue" placeholder="e.g. Grand Ballroom, Hotel ITC Rajputana" value="${venueVal}" required oninput="triggerAutoSave()">
+          </div>
+        </div>
+        <div class="field-group" style="margin-top:12px">
+          <label class="field-label">Dress Code / Attire / Notes <span class="opt">(Optional)</span></label>
+          <input type="text" class="input-control event-dress" placeholder="e.g. Indo-Western / Glamour" value="${dressVal}" oninput="triggerAutoSave()">
+        </div>
+      `;
+      container.appendChild(eventCard);
+    }
+
+    function removeEventCard(button) {
+      const card = button.closest('.event-card');
+      if (card) {
+        card.remove();
+        renumberEventTags();
+        triggerAutoSave();
+      }
+    }
+
+    function renumberEventTags() {
+      const cards = document.querySelectorAll('#eventsContainer .event-card');
+      cards.forEach((card, idx) => {
+        const tag = card.querySelector('.event-tag');
+        if (tag) tag.textContent = `Event #${idx + 1}`;
+      });
+      customEventCount = cards.length;
+    }
+
+    // File Handling
+    function handleFileSelection(e) {
+      const files = Array.from(e.target.files);
+      uploadedFileNames = files.map(f => f.name);
+      const chipList = document.getElementById('fileChipList');
+      chipList.innerHTML = '';
+
+      files.forEach(f => {
+        const sizeKB = (f.size / 1024).toFixed(0);
+        const chip = document.createElement('div');
+        chip.className = 'file-chip';
+        chip.innerHTML = `
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <span>${f.name} (${sizeKB} KB)</span>
+        `;
+        chipList.appendChild(chip);
+      });
+      triggerAutoSave();
+    }
+
+    // ==========================================
+    // AUTOSAVE ENGINE
+    // ==========================================
+    function triggerAutoSave() {
+      const statusBadge = document.getElementById('autosaveStatusBadge');
+      const statusText = document.getElementById('autosaveStatusText');
+      if (statusBadge && statusText) {
+        statusBadge.classList.add('saving');
+        statusText.textContent = 'Saving...';
+      }
+
+      clearTimeout(autosaveTimer);
+      autosaveTimer = setTimeout(() => {
+        saveFormDraft();
+        if (statusBadge && statusText) {
+          statusBadge.classList.remove('saving');
+          const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          statusText.textContent = `Autosaved (${now})`;
+        }
+      }, 350);
+    }
+
+    function saveFormDraft() {
+      try {
+        const eventCards = document.querySelectorAll('#eventsContainer .event-card');
+        const events = [];
+        eventCards.forEach(c => {
+          events.push({
+            name: c.querySelector('.event-name')?.value || '',
+            date: c.querySelector('.event-date')?.value || '',
+            time: c.querySelector('.event-time')?.value || '',
+            venue: c.querySelector('.event-venue')?.value || '',
+            dress: c.querySelector('.event-dress')?.value || ''
+          });
+        });
+
+        const draft = {
+          sampleName: document.getElementById('fieldSelectedSample')?.value || '',
+          sampleLink: document.getElementById('fieldSampleLink')?.value || '',
+          clientName: document.getElementById('clientName')?.value || '',
+          clientWhatsapp: document.getElementById('clientWhatsapp')?.value || '',
+          clientEmail: document.getElementById('clientEmail')?.value || '',
+          brideName: document.getElementById('brideName')?.value || '',
+          brideParents: document.getElementById('brideParents')?.value || '',
+          groomName: document.getElementById('groomName')?.value || '',
+          groomParents: document.getElementById('groomParents')?.value || '',
+          weddingHashtag: document.getElementById('weddingHashtag')?.value || '',
+          rsvpDetails: document.getElementById('rsvpDetails')?.value || '',
+          customQuote: document.getElementById('customQuote')?.value || '',
+          additionalNotes: document.getElementById('additionalNotes')?.value || '',
+          cloudDriveLink: document.getElementById('cloudDriveLink')?.value || '',
+          events: events,
+          updatedAt: new Date().toISOString()
+        };
+
+        localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(draft));
+      } catch (e) {
+        console.warn('Autosave error:', e);
+      }
+    }
+
+    function restoreFormDraft() {
+      try {
+        const raw = localStorage.getItem(DRAFT_STORAGE_KEY);
+        if (!raw) return;
+        const draft = JSON.parse(raw);
+        if (!draft) return;
+
+        // If URL didn't specify sample name or link, restore from draft
+        const params = new URLSearchParams(window.location.search);
+        const hasUrlSample = params.has('sample') || params.has('title') || params.has('name');
+        const hasUrlLink = params.has('link') || params.has('url') || params.has('sampleLink');
+
+        if (!hasUrlSample && draft.sampleName) {
+          const sampleBadgeName = document.getElementById('badgeSampleName');
+          const hiddenSampleInput = document.getElementById('fieldSelectedSample');
+          if (sampleBadgeName) sampleBadgeName.textContent = draft.sampleName;
+          if (hiddenSampleInput) hiddenSampleInput.value = draft.sampleName;
+          document.title = `Fill Details: ${draft.sampleName} | Bright Screen Invites`;
+        }
+
+        const restoredLink = draft.sampleLink || lookupDirectDesignLink(draft.sampleName || '');
+        if (!hasUrlLink && restoredLink) {
+          const hiddenLinkInput = document.getElementById('fieldSampleLink');
+          const sampleLinkPreview = document.getElementById('sampleLinkPreview');
+          const previewBtn = document.getElementById('btnDirectLinkPreview');
+          if (hiddenLinkInput) hiddenLinkInput.value = restoredLink;
+          if (sampleLinkPreview) {
+            sampleLinkPreview.href = restoredLink;
+            sampleLinkPreview.style.display = 'inline-flex';
+          }
+          if (previewBtn) {
+            previewBtn.href = restoredLink;
+            previewBtn.style.display = 'inline-flex';
+          }
+        }
+
+        if (draft.clientName) document.getElementById('clientName').value = draft.clientName;
+        if (draft.clientWhatsapp) document.getElementById('clientWhatsapp').value = draft.clientWhatsapp;
+        if (draft.clientEmail) document.getElementById('clientEmail').value = draft.clientEmail;
+        if (draft.brideName) document.getElementById('brideName').value = draft.brideName;
+        if (draft.brideParents) document.getElementById('brideParents').value = draft.brideParents;
+        if (draft.groomName) document.getElementById('groomName').value = draft.groomName;
+        if (draft.groomParents) document.getElementById('groomParents').value = draft.groomParents;
+        if (draft.weddingHashtag) document.getElementById('weddingHashtag').value = draft.weddingHashtag;
+        if (draft.rsvpDetails) document.getElementById('rsvpDetails').value = draft.rsvpDetails;
+        if (draft.customQuote) document.getElementById('customQuote').value = draft.customQuote;
+        if (draft.additionalNotes) document.getElementById('additionalNotes').value = draft.additionalNotes;
+        if (draft.cloudDriveLink) {
+          document.getElementById('cloudDriveLink').value = draft.cloudDriveLink;
+          checkDriveLinkValue();
+        }
+
+        // Restore custom events
+        if (draft.events && draft.events.length > 0) {
+          const container = document.getElementById('eventsContainer');
+          container.innerHTML = '';
+          draft.events.forEach((ev, idx) => {
+            createEventCardElement(idx + 1, ev);
+          });
+          renumberEventTags();
+        }
+
+        const statusText = document.getElementById('autosaveStatusText');
+        if (statusText) statusText.textContent = 'Draft Restored';
+      } catch (e) {
+        console.warn('Draft restoration error:', e);
+      }
+    }
+
+    function clearFormDraft() {
+      if (!confirm('Clear all draft inputs and reset the form?')) return;
+      localStorage.removeItem(DRAFT_STORAGE_KEY);
+      document.getElementById('weddingDetailsForm').reset();
+      const statusText = document.getElementById('autosaveStatusText');
+      if (statusText) statusText.textContent = 'Draft Cleared';
+      showToast('Form draft cleared.');
+    }
+
+    // ==========================================
+    // FORM SUBMISSION & COMPRESSION
+    // ==========================================
+    function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const sampleName = document.getElementById('fieldSelectedSample').value.trim() || 'Custom Wedding Invitation';
+      let sampleLink = document.getElementById('fieldSampleLink').value.trim();
+      if (!sampleLink) {
+        sampleLink = lookupDirectDesignLink(sampleName) || '';
+      }
+
+      const clientName = document.getElementById('clientName').value.trim();
+      const clientWhatsapp = document.getElementById('clientWhatsapp').value.trim();
+      const clientEmail = document.getElementById('clientEmail').value.trim();
+
+      const brideName = document.getElementById('brideName').value.trim();
+      const brideParents = document.getElementById('brideParents').value.trim();
+      const groomName = document.getElementById('groomName').value.trim();
+      const groomParents = document.getElementById('groomParents').value.trim();
+
+      const weddingHashtag = document.getElementById('weddingHashtag').value.trim();
+      const rsvpDetails = document.getElementById('rsvpDetails').value.trim();
+      const customQuote = document.getElementById('customQuote').value.trim();
+      const additionalNotes = document.getElementById('additionalNotes').value.trim();
+      const cloudDriveLink = document.getElementById('cloudDriveLink').value.trim();
+
+      // Collect Events
+      const eventCards = document.querySelectorAll('#eventsContainer .event-card');
+      const eventsList = [];
+      eventCards.forEach((card, idx) => {
+        const name = card.querySelector('.event-name')?.value.trim() || `Event #${idx + 1}`;
+        const date = card.querySelector('.event-date')?.value || '';
+        const time = card.querySelector('.event-time')?.value.trim() || '';
+        const venue = card.querySelector('.event-venue')?.value.trim() || '';
+        const dress = card.querySelector('.event-dress')?.value.trim() || '';
+        eventsList.push({ name, date, time, venue, dress });
+      });
+
+      // Assemble Structured Submission Object
+      const submissionId = 'SUB-' + Date.now();
+      const submissionData = {
+        id: submissionId,
+        timestamp: new Date().toISOString(),
+        formattedDate: new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }),
+        sampleName,
+        sampleLink,
+        client: { name: clientName, whatsapp: clientWhatsapp, email: clientEmail },
+        couple: { brideName, brideParents, groomName, groomParents },
+        events: eventsList,
+        quote: customQuote,
+        hashtag: weddingHashtag,
+        rsvp: rsvpDetails,
+        notes: additionalNotes,
+        cloudLink: cloudDriveLink,
+        files: uploadedFileNames
+      };
+
+      // Save to localStorage backend
+      saveSubmissionToBackend(submissionData);
+
+      // Build Compressed Message containing directed design link
+      currentStructuredText = buildStructuredCompressedMessage(submissionData);
+
+      // Show in preview container
+      document.getElementById('compressedSummaryText').textContent = currentStructuredText;
+
+      // Setup Share URLs
+      setupShareLinks(currentStructuredText, clientName, sampleName);
+
+      // Open Modal
+      openShareModal();
+    }
+
+    // Build Formatted Structured Text for Cross-Platform Sharing
+    function buildStructuredCompressedMessage(data) {
+      let msg = `✨ *BRIGHT SCREEN INVITES - CLIENT ORDER* ✨\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `💌 *Selected Design:* ${data.sampleName}\n`;
+      const directedLink = (data.sampleLink || lookupDirectDesignLink(data.sampleName) || '').trim();
+      if (directedLink) {
+        msg += `🔗 *Directed Link of Selected Design:* ${directedLink}\n`;
+      } else {
+        msg += `🔗 *Directed Link of Selected Design:* Custom Request (via Bright Screen Invites)\n`;
+      }
+      msg += `📅 *Submitted:* ${data.formattedDate}\n\n`;
+
+      msg += `👤 *CONTACT DETAILS:*\n`;
+      msg += `• Name: ${data.client.name}\n`;
+      msg += `• WhatsApp: ${data.client.whatsapp}\n`;
+      msg += `• Email: ${data.client.email}\n\n`;
+
+      msg += `💑 *COUPLE & FAMILY:*\n`;
+      msg += `• Bride: ${data.couple.brideName}\n`;
+      if (data.couple.brideParents) msg += `  └ Family: ${data.couple.brideParents}\n`;
+      msg += `• Groom: ${data.couple.groomName}\n`;
+      if (data.couple.groomParents) msg += `  └ Family: ${data.couple.groomParents}\n\n`;
+
+      msg += `🗓️ *FUNCTIONS & SCHEDULE:*\n`;
+      data.events.forEach((ev, idx) => {
+        msg += `[${idx + 1}] *${ev.name}*\n`;
+        if (ev.date) msg += `    📅 Date: ${ev.date}\n`;
+        if (ev.time) msg += `    ⏰ Time: ${ev.time}\n`;
+        if (ev.venue) msg += `    📍 Venue: ${ev.venue}\n`;
+        if (ev.dress) msg += `    👗 Attire: ${ev.dress}\n`;
+      });
+      msg += `\n`;
+
+      if (data.quote || data.hashtag || data.rsvp || data.notes) {
+        msg += `📜 *ADDITIONAL DETAILS:*\n`;
+        if (data.hashtag) msg += `• Hashtag: ${data.hashtag}\n`;
+        if (data.quote) msg += `• Quote/Verse: "${data.quote}"\n`;
+        if (data.rsvp) msg += `• RSVP: ${data.rsvp}\n`;
+        if (data.notes) msg += `• Special Notes: ${data.notes}\n`;
+        msg += `\n`;
+      }
+
+      if (data.cloudLink || data.files.length > 0) {
+        msg += `📸 *PIC FOR CARICATURE:*\n`;
+        if (data.cloudLink) msg += `• Google Drive Link: ${data.cloudLink}\n`;
+        if (data.files.length > 0) msg += `• Direct Files: ${data.files.join(', ')}\n`;
+        msg += `\n`;
+      }
+
+      msg += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `Sent via Bright Screen Invites`;
+      return msg;
+    }
+
+    // Setup Share URLs
+    function setupShareLinks(msgText, clientName, sampleName) {
+      // 1. WhatsApp Direct URL to Bright Screen Invites
+      const waNumber = '918745028722';
+      const waEncoded = encodeURIComponent(msgText);
+      const waBtn = document.getElementById('waShareBtn');
+      waBtn.href = `https://wa.me/${waNumber}?text=${waEncoded}`;
+
+      // 2. Email Link
+      const emailBtn = document.getElementById('emailShareBtn');
+      const emailSubject = encodeURIComponent(`Wedding Details: ${clientName} (${sampleName})`);
+      emailBtn.href = `mailto:brightscreeninvites@gmail.com?subject=${emailSubject}&body=${waEncoded}`;
+    }
+
+    // Native Web Share API (Works across mobile apps: WhatsApp, Telegram, Instagram DM, Messages, AirDrop, etc.)
+    async function shareViaNativeSheet() {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: 'Wedding Invitation Details',
+            text: currentStructuredText
+          });
+          showToast('Shared successfully!');
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            copyStructuredMessage();
+          }
+        }
+      } else {
+        copyStructuredMessage();
+      }
+    }
+
+    // Copy to Clipboard with Toast
+    function copyStructuredMessage() {
+      if (!currentStructuredText) return;
+      navigator.clipboard.writeText(currentStructuredText).then(() => {
+        showToast('📋 Structured message copied to clipboard!');
+      }).catch(() => {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = currentStructuredText;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('📋 Structured message copied to clipboard!');
+      });
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toastMsg');
+      toast.textContent = text;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3200);
+    }
+
+    // Modals
+    function openShareModal() {
+      document.getElementById('shareModal').classList.add('active');
+    }
+
+    function closeShareModal() {
+      document.getElementById('shareModal').classList.remove('active');
+    }
+
+    function openImageLightbox(src, caption) {
+      const modal = document.getElementById('imageLightboxModal');
+      const img = document.getElementById('lightboxImg');
+      const cap = document.getElementById('lightboxCaption');
+      if (modal && img) {
+        img.src = src;
+        if (cap) cap.textContent = caption || '';
+        modal.classList.add('active');
+      }
+    }
+
+    function closeImageLightbox() {
+      const modal = document.getElementById('imageLightboxModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    // ==========================================
+    // BACKEND STORAGE & ADMIN VIEWER
+    // ==========================================
+    function getStoredSubmissions() {
+      try {
+        const raw = localStorage.getItem(SUBMISSIONS_STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveSubmissionToBackend(sub) {
+      try {
+        const list = getStoredSubmissions();
+        list.unshift(sub); // newest first
+        localStorage.setItem(SUBMISSIONS_STORAGE_KEY, JSON.stringify(list));
+      } catch (e) {
+        console.error('Failed to save to local backend:', e);
+      }
+    }
+
+    function openAdminModal() {
+      renderAdminTable();
+      document.getElementById('adminModal').classList.add('active');
+    }
+
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.remove('active');
+    }
+
+    function renderAdminTable() {
+      const list = getStoredSubmissions();
+      const countEl = document.getElementById('adminTotalCount');
+      const latestEl = document.getElementById('adminLatestTime');
+      const tbody = document.getElementById('adminTableBody');
+
+      countEl.textContent = list.length;
+      latestEl.textContent = list.length > 0 ? list[0].formattedDate : 'None';
+
+      if (list.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:24px">No submissions saved yet.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = list.map((item, idx) => {
+        const coupleNames = `${item.couple?.brideName || 'Bride'} & ${item.couple?.groomName || 'Groom'}`;
+        const eventCount = item.events ? item.events.length : 0;
+        const directLink = item.sampleLink || lookupDirectDesignLink(item.sampleName || '');
+        const linkCell = directLink ? `<a href="${directLink}" target="_blank" style="color:var(--pink);font-size:0.75rem;font-weight:600">View Design ↗</a>` : '<span style="color:var(--muted)">-</span>';
+        return `
+          <tr>
+            <td style="white-space:nowrap">${item.formattedDate || item.timestamp.split('T')[0]}</td>
+            <td><strong>${item.sampleName || 'General'}</strong></td>
+            <td>${linkCell}</td>
+            <td>${item.client?.name || '-'}</td>
+            <td><a href="https://wa.me/${(item.client?.whatsapp || '').replace(/[^0-9]/g, '')}" target="_blank" style="color:var(--wa-dark);font-weight:600">${item.client?.whatsapp || '-'}</a></td>
+            <td>${coupleNames}</td>
+            <td><span class="sample-pill" style="font-size:0.72rem">${eventCount} Functions</span></td>
+            <td style="white-space:nowrap">
+              <button type="button" class="nav-btn nav-btn-outline" style="padding:4px 8px;font-size:0.75rem" onclick="copyAdminSingleSubmission(${idx})">Copy Summary</button>
+              <button type="button" class="nav-btn" style="padding:4px 8px;font-size:0.75rem;background:#FFEAEA;color:#D32F2F;border:none;margin-left:4px" onclick="deleteAdminSubmission(${idx})">&times;</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function copyAdminSingleSubmission(idx) {
+      const list = getStoredSubmissions();
+      const item = list[idx];
+      if (!item) return;
+      const msg = buildStructuredCompressedMessage(item);
+      navigator.clipboard.writeText(msg).then(() => {
+        showToast('Copied submission #' + (idx + 1) + ' to clipboard!');
+      });
+    }
+
+    function deleteAdminSubmission(idx) {
+      if (!confirm('Are you sure you want to remove this client submission?')) return;
+      const list = getStoredSubmissions();
+      list.splice(idx, 1);
+      localStorage.setItem(SUBMISSIONS_STORAGE_KEY, JSON.stringify(list));
+      renderAdminTable();
+      showToast('Submission removed.');
+    }
+
+    function clearAllSubmissions() {
+      if (!confirm('Are you sure you want to clear ALL client submissions? This cannot be undone.')) return;
+      localStorage.removeItem(SUBMISSIONS_STORAGE_KEY);
+      renderAdminTable();
+      showToast('All submissions cleared.');
+    }
+
+    function exportSubmissionsJSON() {
+      const list = getStoredSubmissions();
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(list, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute('href', dataStr);
+      downloadAnchor.setAttribute('download', `bright_screen_invites_submissions_${Date.now()}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    function exportSubmissionsCSV() {
+      const list = getStoredSubmissions();
+      if (list.length === 0) {
+        alert('No submissions to export.');
+        return;
+      }
+      let csv = 'Submission ID,Date,Design Sample,Design Link,Client Name,Client WhatsApp,Client Email,Bride,Groom,Event Count,Drive Link\n';
+      list.forEach(item => {
+        const row = [
+          `"${item.id || ''}"`,
+          `"${item.formattedDate || ''}"`,
+          `"${item.sampleName || ''}"`,
+          `"${item.sampleLink || ''}"`,
+          `"${item.client?.name || ''}"`,
+          `"${item.client?.whatsapp || ''}"`,
+          `"${item.client?.email || ''}"`,
+          `"${item.couple?.brideName || ''}"`,
+          `"${item.couple?.groomName || ''}"`,
+          `"${item.events?.length || 0}"`,
+          `"${item.cloudLink || ''}"`
+        ];
+        csv += row.join(',') + '\n';
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `bsi_submissions_${Date.now()}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    // Close Modals on click outside
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+      modal.addEventListener('click', e => {
+        if (e.target === modal) modal.classList.remove('active');
+      });
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initSampleFromUrl();
+      restoreFormDraft();
+      checkDriveLinkValue();
+      const formEl = document.getElementById('weddingDetailsForm');
+      if (formEl) {
+        formEl.addEventListener('input', triggerAutoSave);
+        formEl.addEventListener('change', triggerAutoSave);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
