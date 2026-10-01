@@ -1323,6 +1323,26 @@
       color: var(--pink);
     }
 
+    .sample-tag-line {
+      font-size: 0.76rem;
+      color: var(--pink);
+      font-weight: 600;
+      margin-top: 3px;
+      line-height: 1.3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      text-decoration: none;
+      transition: color .2s ease, transform .2s ease;
+    }
+
+    .sample-tag-line:hover,
+    .gig-card:hover .sample-tag-line {
+      color: var(--gold);
+      transform: translateY(-1px);
+    }
+
     @media (max-width: 599px) {
       .gig-card {
         border-radius: 10px;
@@ -1333,6 +1353,9 @@
       .gig-category-name {
         font-size: 0.8rem;
         line-height: 1.2;
+      }
+      .sample-tag-line {
+        font-size: 0.68rem;
       }
     }
 
@@ -3267,6 +3290,7 @@
           </div>
           <div class="gig-card-body">
             <h3 class="gig-category-name">${c.name}</h3>
+            <span class="sample-tag-line"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Tap to preview</span>
           </div>
         </a>
       `).join('');
