@@ -1126,7 +1126,6 @@
           <span id="autosaveStatusText">Autosave: Active</span>
         </div>
         <a href="index.html" class="nav-btn nav-btn-outline">&larr; Back to Designs</a>
-        <button type="button" class="nav-btn nav-btn-admin" onclick="openAdminModal()">Admin Access</button>
       </div>
     </div>
   </header>
@@ -1224,19 +1223,19 @@
 
           <div class="grid-3">
             <div class="field-group">
-              <label class="field-label" for="clientName">Full Name <span class="req">*</span></label>
-              <input type="text" id="clientName" name="clientName" class="input-control" placeholder="e.g. Aman Sharma" required oninput="triggerAutoSave()">
+              <label class="field-label" for="clientName">Full Name</label>
+              <input type="text" id="clientName" name="clientName" class="input-control" placeholder="e.g. Aman Sharma" oninput="triggerAutoSave()">
             </div>
 
             <div class="field-group">
-              <label class="field-label" for="clientWhatsapp">WhatsApp Number <span class="req">*</span></label>
-              <input type="tel" id="clientWhatsapp" name="clientWhatsapp" class="input-control" placeholder="e.g. +91 98765 43210" required oninput="triggerAutoSave()">
+              <label class="field-label" for="clientWhatsapp">WhatsApp Number</label>
+              <input type="tel" id="clientWhatsapp" name="clientWhatsapp" class="input-control" placeholder="e.g. +91 98765 43210" oninput="triggerAutoSave()">
               <span class="input-hint">Include country code (e.g. +91 for India)</span>
             </div>
 
             <div class="field-group">
-              <label class="field-label" for="clientEmail">Email Address <span class="req">*</span></label>
-              <input type="email" id="clientEmail" name="clientEmail" class="input-control" placeholder="e.g. aman@example.com" required oninput="triggerAutoSave()">
+              <label class="field-label" for="clientEmail">Email Address</label>
+              <input type="email" id="clientEmail" name="clientEmail" class="input-control" placeholder="e.g. aman@example.com" oninput="triggerAutoSave()">
             </div>
           </div>
         </section>
@@ -1318,8 +1317,8 @@
                   <input type="text" class="input-control event-time" placeholder="e.g. 07:00 PM onwards / Baraat 6 PM" required oninput="triggerAutoSave()">
                 </div>
                 <div class="field-group">
-                  <label class="field-label">Venue &amp; City <span class="req">*</span></label>
-                  <input type="text" class="input-control event-venue" placeholder="e.g. Castle Mandawa, Shekhawati, Rajasthan" required oninput="triggerAutoSave()">
+                  <label class="field-label">Venue &amp; City</label>
+                  <input type="text" class="input-control event-venue" placeholder="e.g. Castle Mandawa, Shekhawati, Rajasthan" oninput="triggerAutoSave()">
                 </div>
               </div>
               <div class="field-group" style="margin-top:12px">
@@ -1545,7 +1544,7 @@
               <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
               <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
             </svg>
-            Review &amp; Share Details
+            Submit &amp; Share Details
           </button>
           <div>
             <button type="button" class="btn-reset-draft" onclick="clearFormDraft()">Clear draft and start fresh</button>
@@ -1563,7 +1562,7 @@
       <div style="text-align:center;margin-bottom:14px">
         <span style="font-size:2rem">✨</span>
         <h2 class="modal-title">Your Details Are Ready!</h2>
-        <p class="modal-sub">Your wedding invitation details have been saved and compressed into a structured summary. Choose how you would like to share it below:</p>
+        <p class="modal-sub">Your wedding invitation details have been compiled into a structured summary and are being sent to us on WhatsApp.</p>
       </div>
 
       <!-- Compressed Structured Text Preview -->
@@ -1577,40 +1576,13 @@
           </svg>
           Send via WhatsApp
         </a>
-
-        <button type="button" class="btn-share-option btn-share-copy" onclick="copyStructuredMessage()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-          </svg>
-          Copy Formatted Text
-        </button>
-
-        <button type="button" class="btn-share-option btn-share-native" onclick="shareViaNativeSheet()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="18" cy="5" r="3"></circle>
-            <circle cx="6" cy="12" r="3"></circle>
-            <circle cx="18" cy="19" r="3"></circle>
-            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-          </svg>
-          Share Across Apps
-        </button>
-
-        <a href="#" class="btn-share-option btn-share-email" id="emailShareBtn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          Send via Email
-        </a>
       </div>
 
       <div class="confirmation-banner">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
-        <span>Your response has also been securely logged into our internal system. We will contact you shortly!</span>
+        <span>Your details have been prepared for WhatsApp. If WhatsApp didn't open, tap "Send via WhatsApp" above. We will contact you shortly!</span>
       </div>
     </div>
   </div>
@@ -1690,6 +1662,7 @@
     let autosaveTimer = null;
     const DRAFT_STORAGE_KEY = 'bsi_form_draft_v1';
     const SUBMISSIONS_STORAGE_KEY = 'bsi_submissions_db';
+    const ORDER_EMAIL = 'brightscreeninvites@gmail.com';
 
     // Complete Catalog Mapping for Instant Directed Design Links
     const DESIGN_CATALOG_LINKS = {
@@ -1907,8 +1880,8 @@
             <input type="text" class="input-control event-time" placeholder="e.g. 08:00 PM onwards" value="${timeVal}" required oninput="triggerAutoSave()">
           </div>
           <div class="field-group">
-            <label class="field-label">Venue &amp; City <span class="req">*</span></label>
-            <input type="text" class="input-control event-venue" placeholder="e.g. Grand Ballroom, Hotel ITC Rajputana" value="${venueVal}" required oninput="triggerAutoSave()">
+            <label class="field-label">Venue &amp; City</label>
+            <input type="text" class="input-control event-venue" placeholder="e.g. Grand Ballroom, Hotel ITC Rajputana" value="${venueVal}" oninput="triggerAutoSave()">
           </div>
         </div>
         <div class="field-group" style="margin-top:12px">
@@ -2154,20 +2127,37 @@
         files: uploadedFileNames
       };
 
-      // Save to localStorage backend
-      saveSubmissionToBackend(submissionData);
-
-      // Build Compressed Message containing directed design link
+      // Build the structured message
       currentStructuredText = buildStructuredCompressedMessage(submissionData);
-
-      // Show in preview container
       document.getElementById('compressedSummaryText').textContent = currentStructuredText;
 
-      // Setup Share URLs
-      setupShareLinks(currentStructuredText, clientName, sampleName);
+      // Email the exact details to the studio inbox
+      sendDetailsByEmail(currentStructuredText, clientName, sampleName, clientEmail);
 
-      // Open Modal
+      // Open WhatsApp (no fixed recipient: user can pick any contact/chat to share with)
+      const waUrl = setupShareLinks(currentStructuredText, clientName, sampleName);
       openShareModal();
+      window.open(waUrl, '_blank', 'noopener');
+    }
+
+    // Sends the submission to brightscreeninvites@gmail.com via FormSubmit (no backend needed)
+    function sendDetailsByEmail(msgText, clientName, sampleName, clientEmail) {
+      const payload = {
+        _subject: `Wedding Details: ${clientName || 'New Client'} (${sampleName})`,
+        _template: 'box',
+        _captcha: 'false',
+        Details: msgText
+      };
+      if (clientEmail) payload._replyto = clientEmail;
+      fetch(`https://formsubmit.co/ajax/${ORDER_EMAIL}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(r => r.json()).then(res => {
+        showToast(res && (res.success === 'true' || res.success === true)
+          ? '📧 Details emailed to Bright Screen Invites!'
+          : '⚠️ Email could not be sent. Please use WhatsApp.');
+      }).catch(() => showToast('⚠️ Email could not be sent. Please use WhatsApp.'));
     }
 
     // Build Formatted Structured Text for Cross-Platform Sharing
@@ -2228,15 +2218,11 @@
     // Setup Share URLs
     function setupShareLinks(msgText, clientName, sampleName) {
       // 1. WhatsApp Direct URL to Bright Screen Invites
-      const waNumber = '918745028722';
       const waEncoded = encodeURIComponent(msgText);
+      const url = `https://wa.me/?text=${waEncoded}`;
       const waBtn = document.getElementById('waShareBtn');
-      waBtn.href = `https://wa.me/${waNumber}?text=${waEncoded}`;
-
-      // 2. Email Link
-      const emailBtn = document.getElementById('emailShareBtn');
-      const emailSubject = encodeURIComponent(`Wedding Details: ${clientName} (${sampleName})`);
-      emailBtn.href = `mailto:brightscreeninvites@gmail.com?subject=${emailSubject}&body=${waEncoded}`;
+      waBtn.href = url;
+      return url;
     }
 
     // Native Web Share API (Works across mobile apps: WhatsApp, Telegram, Instagram DM, Messages, AirDrop, etc.)
