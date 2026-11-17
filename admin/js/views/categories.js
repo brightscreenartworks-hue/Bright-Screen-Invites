@@ -27,7 +27,7 @@ export async function editCategory(ctx, cats, existing, parentId) {
         <label class="field"><span class="label">Icon <span class="muted">(optional emoji)</span></span>
           <input class="input" name="icon" maxlength="8" value="${c.icon || ''}" placeholder="👑"></label>
         <div class="field"><span class="label">Card thumbnail</span>
-          <div class="row"><img data-thumb src="${siteUrl(c.custom_thumbnail_url)}" alt="" style="width:44px;height:44px;object-fit:cover;border-radius:8px;background:#180612;${c.custom_thumbnail_url ? '' : 'display:none'}">
+          <div class="row"><img data-thumb src="${siteUrl(c.custom_thumbnail_url)}" alt="" style="width:44px;height:44px;object-fit:cover;border-radius:8px;background:#f6edf1;${c.custom_thumbnail_url ? '' : 'display:none'}">
           <label class="btn sm">${icon('upload')} Upload<input type="file" accept="image/*" data-file hidden></label>
           <button type="button" class="btn sm ghost" data-clear ${c.custom_thumbnail_url ? '' : 'hidden'}>Use newest sample</button></div>
           <div class="hint">Leave empty to use the newest sample’s thumbnail automatically.</div></div>
