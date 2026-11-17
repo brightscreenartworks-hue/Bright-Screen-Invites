@@ -99,16 +99,24 @@ module.exports = handle(async (req, res) => {
     user_agent: str(req.headers['user-agent'], 300) || null,
   };
 
-  if (!record.client_name && !record.client_whatsapp && !record.client_email) {
-    throw new HttpError(400, 'Please enter your name and WhatsApp number');
-  }
+  // Never lose a lead: the website's own form decides which fields are required.
+  // Only a completely empty submission is refused.
+  const couple = (record.payload && record.payload.couple) || {};
+  const p = record.payload || {};
+  const hasSomething = record.client_name || record.client_whatsapp || record.client_email ||
+    couple.brideName || couple.groomName || p.bride || p.groom || p.fullName ||
+    (Array.isArray(p.events) && p.events.length) || p.notes;
+  if (!hasSomething) throw new HttpError(400, 'Please fill in your details before submitting');
+  // Odd-looking contact details are kept (so nothing is lost) but noted for the admin.
+  const warnings = [];
   if (record.client_whatsapp) {
     const d = digits(record.client_whatsapp);
-    if (d.length < 7 || d.length > 15) throw new HttpError(400, 'Please enter a valid WhatsApp number');
+    if (d.length < 7 || d.length > 15) warnings.push('WhatsApp number looks invalid');
   }
-  if (record.client_email && !EMAIL_RE.test(record.client_email)) {
-    throw new HttpError(400, 'Please enter a valid email address');
-  }
+  if (record.client_email && !EMAIL_RE.test(record.client_email)) warnings.push('Email looks invalid');
+  if (warnings.length) record.payload = { ...record.payload, _checks: warnings };
+  if (!record.client_name) record.client_name = couple.brideName && couple.groomName
+    ? `${couple.brideName} & ${couple.groomName}` : (couple.brideName || couple.groomName || p.fullName || null);
   if (record.sample_link && !/^https?:\/\//i.test(record.sample_link)) record.sample_link = null;
   if (JSON.stringify(record.payload).length > 120000) throw new HttpError(413, 'Submission is too large');
 
