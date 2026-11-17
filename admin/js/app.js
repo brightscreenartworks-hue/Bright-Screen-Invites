@@ -138,7 +138,7 @@ function renderRecovery() {
 function renderShell() {
   app.innerHTML = String(html`<div class="shell" id="shell">
     <aside class="sidebar" aria-label="Admin navigation">
-      <div class="sb-brand"><img src="../Asset 1.png" alt=""><div><span>Bright Screen</span><small>Admin Panel</small></div></div>
+      <div class="sb-brand"><img src="../Asset 1.png" alt="Bright Screen Invites"><small class="pill-tag">Admin</small></div>
       <nav class="sb-nav">
         <div class="sb-section">Overview</div>
         ${navLink(NAV[0])}
@@ -148,26 +148,34 @@ function renderShell() {
         ${NAV.slice(4, 6).map(navLink)}
         <div class="sb-section">System</div>
         ${NAV.slice(6).map(navLink)}
-        <button class="sb-link" id="logoutBtn" type="button">${icon('logout')}<span>Logout</span></button>
+        <button class="sb-link logout" id="logoutBtn" type="button">${icon('logout')}<span>Logout</span></button>
       </nav>
       <div class="sb-foot">
         <div class="sb-user"><div class="avatar">${initials(state.me.email)}</div><div class="email" title="${state.me.email}">${state.me.email}</div></div>
-        <a href="../index.html" target="_blank" rel="noopener" style="color:#e8b9cb">View live website ↗</a>
+        <a href="../index.html" target="_blank" rel="noopener">View live website ↗</a>
       </div>
     </aside>
     <div class="scrim" id="scrim"></div>
     <div class="main">
       <header class="topbar">
         <button class="btn ghost icon menu-btn" id="menuBtn" aria-label="Open menu">${icon('menu')}</button>
-        <div><div class="crumbs" id="crumbs">Bright Screen Invites</div><h1 id="pageTitle">Dashboard</h1></div>
+        <div class="titles"><div class="crumbs" id="crumbs">Bright Screen Invites</div><h1 id="pageTitle">Dashboard</h1></div>
         <span class="spacer"></span>
         <div id="topActions" class="row"></div>
       </header>
       <section class="content" id="content" tabindex="-1"></section>
     </div>
+    <nav class="bottom-nav" aria-label="Quick navigation">
+      <a href="#/dashboard" data-nav="dashboard">${icon('dashboard')}<span>Home</span></a>
+      <a href="#/samples" data-nav="samples">${icon('samples')}<span>Samples</span></a>
+      <a href="#/upload" data-nav="upload" class="fab" aria-label="Upload new sample"><span class="circle">${icon('plus')}</span></a>
+      <a href="#/submissions" data-nav="submissions">${icon('inbox')}<span>Clients</span><span class="dot" data-count="fresh" hidden></span></a>
+      <button type="button" id="moreBtn">${icon('menu')}<span>More</span></button>
+    </nav>
   </div>`);
   $('#logoutBtn').addEventListener('click', logout);
   $('#menuBtn').addEventListener('click', () => $('#shell').classList.toggle('nav-open'));
+  $('#moreBtn').addEventListener('click', () => $('#shell').classList.toggle('nav-open'));
   $('#scrim').addEventListener('click', () => $('#shell').classList.remove('nav-open'));
   refreshCounts();
 }
