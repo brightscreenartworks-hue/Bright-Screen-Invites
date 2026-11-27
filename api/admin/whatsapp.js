@@ -5,7 +5,8 @@
 'use strict';
 
 const { requireAdmin, readJson, send, handle, allowMethods, HttpError, rest, getSettings } = require('../_lib/supabase');
-const { sendWhatsApp, providerStatus } = require('../_lib/whatsapp');
+const { providerStatus } = require('../_lib/whatsapp');
+const { notifyOrder } = require('../_lib/notify');
 const submit = require('../submit');
 
 module.exports = handle(async (req, res) => {
@@ -13,16 +14,16 @@ module.exports = handle(async (req, res) => {
   const admin = await requireAdmin(req);
 
   if (req.method === 'GET') {
-    return send(res, 200, { ok: true, providers: providerStatus() }, { 'Cache-Control': 'no-store' });
+    return send(res, 200, { ok: true, providers: providerStatus(), email: Boolean(process.env.NOTIFY_EMAIL) }, { 'Cache-Control': 'no-store' });
   }
 
   const body = await readJson(req, 10 * 1024);
   const settings = await getSettings('whatsapp');
 
   if (body.action === 'test') {
-    const result = await sendWhatsApp({ ...settings, enabled: true },
-      `✅ Bright Screen Invites — test message\nSent from the Admin Panel by ${admin.email} at ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}.`);
-    return send(res, 200, { ok: result.status === 'sent', ...result }, { 'Cache-Control': 'no-store' });
+    const result = await notifyOrder(settings, 'Bright Screen Invites — test alert',
+      `✅ Bright Screen Invites — test alert\nSent from the Admin Panel by ${admin.email} at ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}.`);
+    return send(res, 200, { ok: result.status === 'sent', status: result.status, error: result.error, channels: result.channels }, { 'Cache-Control': 'no-store' });
   }
 
   if (body.action === 'resend') {
