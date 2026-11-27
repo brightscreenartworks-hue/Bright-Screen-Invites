@@ -170,6 +170,9 @@ async function renderDetail(ctx, id) {
               <tbody>${evs.map((e, i) => html`<tr><td>${i + 1}</td><td><strong>${e.name || ''}</strong></td><td>${e.date || ''}</td><td>${e.time || ''}</td><td>${e.venue || ''}</td><td>${e.dress || ''}</td></tr>`)}</tbody></table></div>` : ''}
           </div></div>
 
+          ${Array.isArray(p.attachments) && p.attachments.length ? html`<div class="card"><div class="card-h"><h2>Caricature photos & files</h2><span class="spacer"></span><span class="small muted">${p.attachments.length} file${p.attachments.length === 1 ? '' : 's'}</span></div>
+            <div class="card-b"><div class="att-grid" id="attGrid"><p class="small muted" style="margin:0">Loading photos…</p></div></div></div>` : ''}
+
           ${row.summary_text ? html`<div class="card"><div class="card-h"><h2>Message as sent</h2><span class="spacer"></span><button class="btn sm" id="copySummary">${icon('copy')} Copy</button></div>
             <div class="card-b"><div class="pre">${row.summary_text}</div></div></div>` : ''}
         </div>
@@ -214,8 +217,31 @@ async function renderDetail(ctx, id) {
 
   const reload = async () => { ({ row, notes, events } = await ctx.data.submission(id)); if (row && ctx.isCurrent()) paint(); };
 
+  async function loadFiles() {
+    const grid = ctx.el.querySelector('#attGrid');
+    if (!grid) return;
+    try {
+      const { files } = await ctx.data.submissionFiles(id);
+      if (!ctx.isCurrent() || !grid.isConnected) return;
+      const kb = (n) => (n > 1048576 ? `${(n / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(n / 1024))} KB`);
+      grid.innerHTML = String(html`${files.map((f) => {
+        const isImg = /^image\//.test(f.type || '') && !/hei[cf]/i.test(f.type || '');
+        const dl = f.url ? `${f.url}${f.url.includes('?') ? '&' : '?'}download=${encodeURIComponent(f.name || 'file')}` : '';
+        return html`<div class="att">
+          ${f.url && isImg ? html`<a class="att-img" href="${f.url}" target="_blank" rel="noopener"><img src="${f.url}" alt="${f.name}" loading="lazy"></a>`
+            : html`<div class="att-img att-file">${icon('file')}<span>${(String(f.name || '').split('.').pop() || 'file').toUpperCase()}</span></div>`}
+          <div class="att-meta"><div class="att-name" title="${f.name}">${f.name}</div><div class="small muted">${f.size ? kb(f.size) : ''}</div></div>
+          ${f.url ? html`<div class="att-actions"><a class="btn sm" href="${f.url}" target="_blank" rel="noopener">Open</a><a class="btn sm" href="${dl}">Download</a></div>` : html`<div class="small muted">Unavailable</div>`}
+        </div>`;
+      })}`);
+    } catch (er) {
+      grid.innerHTML = String(html`<p class="small muted" style="margin:0">Could not load photos: ${errMsg(er)}</p>`);
+    }
+  }
+
   function bind() {
     const el = ctx.el;
+    loadFiles();
     el.querySelector('#statusSeg').addEventListener('click', async (e) => {
       const b = e.target.closest('[data-st]');
       if (!b || b.dataset.st === row.status) return;
