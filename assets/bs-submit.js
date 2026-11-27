@@ -105,6 +105,84 @@
     toast('✅ Details received' + (ref ? ' · Ref ' + ref : ''));
   }
 
+  // ------------------------------------------------ photo uploads (caricature pics etc.)
+  var UPLOAD_API = (script && script.getAttribute('data-upload-api')) || '/api/upload';
+
+  function uploadApi(body) {
+    return fetch(UPLOAD_API, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), credentials: 'omit',
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (d) {
+        if (!r.ok || !d.ok) throw new Error(d.error || ('HTTP ' + r.status));
+        return d;
+      });
+    });
+  }
+
+  // Big phone photos are scaled down to max 2560px (plenty for caricature artwork) to upload fast.
+  function shrink(file) {
+    if (!/^image\/(jpeg|png|webp)$/i.test(file.type) || file.size < 2.5 * 1024 * 1024 || !window.createImageBitmap) return Promise.resolve(file);
+    return createImageBitmap(file).then(function (bmp) {
+      var max = 2560, scale = Math.min(1, max / Math.max(bmp.width, bmp.height));
+      var c = document.createElement('canvas');
+      c.width = Math.round(bmp.width * scale); c.height = Math.round(bmp.height * scale);
+      c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+      return new Promise(function (res) { c.toBlob(res, 'image/jpeg', 0.9); });
+    }).then(function (blob) {
+      if (!blob || blob.size >= file.size) return file;
+      return new File([blob], file.name.replace(/\.[^.]+$/, '') + '.jpg', { type: 'image/jpeg' });
+    }).catch(function () { return file; });
+  }
+
+  function putFile(url, file) {
+    var fd = new FormData();
+    fd.append('cacheControl', '3600');
+    fd.append('', file);
+    return fetch(url, { method: 'PUT', body: fd, headers: { 'x-upsert': 'true' } }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+    });
+  }
+
+  function setUploadNote(msg) {
+    var box = document.getElementById('bsUploadNote');
+    var banner = document.getElementById('bsSavedBanner');
+    if (!box && banner && banner.parentNode) {
+      box = document.createElement('div');
+      box.id = 'bsUploadNote';
+      box.style.cssText = 'margin:0 auto 8px;font-size:.82rem;color:#7a5b66;text-align:center;max-width:520px';
+      banner.parentNode.insertBefore(box, banner.nextSibling);
+    }
+    if (box) box.innerHTML = msg;
+  }
+
+  function uploadAttachments(ref, key, fileList) {
+    var files = Array.prototype.slice.call(fileList || [], 0, 15);
+    if (!ref || !key || !files.length) return Promise.resolve();
+    setUploadNote('📤 Uploading ' + files.length + ' photo' + (files.length === 1 ? '' : 's') + '… please keep this page open.');
+    return Promise.all(files.map(shrink)).then(function (ready) {
+      return uploadApi({ action: 'sign', ref: ref, key: key, files: ready.map(function (f) { return { name: f.name, type: f.type, size: f.size }; }) })
+        .then(function (d) {
+          var done = [], failed = 0;
+          var jobs = (d.uploads || []).map(function (u, i) {
+            if (!u.url) { failed++; return Promise.resolve(); }
+            var f = ready[i];
+            return putFile(u.url, f).catch(function () { return putFile(u.url, f); })
+              .then(function () { done.push(u.path); }).catch(function () { failed++; });
+          });
+          return Promise.all(jobs).then(function () {
+            if (!done.length) throw new Error('upload failed');
+            return uploadApi({ action: 'done', ref: ref, key: key, paths: done }).then(function () {
+              setUploadNote('📎 ' + done.length + ' photo' + (done.length === 1 ? '' : 's') + ' received by Bright Screen Invites' +
+                (failed ? ' (' + failed + ' could not be uploaded — please share those on WhatsApp)' : '') + '.');
+              toast('📎 Photos uploaded');
+            });
+          });
+        });
+    }).catch(function () {
+      setUploadNote('⚠️ Photos could not be uploaded. Please share them on WhatsApp or via the Google Drive link.');
+    });
+  }
+
   // ------------------------------------------------ fill-details.html
   function collectFillDetails() {
     var params = new URLSearchParams(window.location.search);
@@ -158,6 +236,8 @@
         return save(body);
       }).then(function (d) {
         showSaved(d.ref, document.querySelector('#shareModal .modal-dialog'));
+        var input = document.getElementById('mediaFiles');
+        if (input && input.files && input.files.length) uploadAttachments(d.ref, body.idempotency_key, input.files);
       }).catch(function (err) {
         if (!err || !err.silent) toast('⚠️ We could not confirm receipt — please also send your details on WhatsApp.');
       }).then(function () { busy = false; });
@@ -204,5 +284,5 @@
   }
 
   init();
-  window.BSSubmit = { save: save, flushQueue: flushQueue };
+  window.BSSubmit = { save: save, flushQueue: flushQueue, uploadAttachments: uploadAttachments };
 })();
