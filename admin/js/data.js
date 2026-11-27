@@ -141,6 +141,7 @@ export const data = {
   async trash() { return check(await sb.from('submissions_trash').select('id,data,deleted_by,deleted_at').order('deleted_at', { ascending: false })); },
   async restoreSubmission(id) { check(await sb.rpc('restore_submission', { p_id: id })); },
   async purgeTrash(id) { check(await sb.from('submissions_trash').delete().eq('id', id)); },
+  submissionFiles(id) { return api(`/api/admin/files?id=${encodeURIComponent(id)}`); },
   resendWhatsApp(id) { return api('/api/admin/whatsapp', { method: 'POST', body: { action: 'resend', id } }); },
 
   // ------------------------------------------------------------ dashboard

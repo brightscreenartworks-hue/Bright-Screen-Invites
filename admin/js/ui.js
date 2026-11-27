@@ -59,6 +59,7 @@ const P = {
   arrowLeft: '<path d="M19 12H5M12 19l-7-7 7-7"/>',
   monitor: '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
   phone: '<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+  file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/>',
   copy: '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
   key: '<circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/>',
   send: '<path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/>',
