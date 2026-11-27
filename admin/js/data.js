@@ -138,6 +138,7 @@ export const data = {
   async setSubmissionStatus(id, status) { check(await sb.from('submissions').update({ status }).eq('id', id)); },
   async addNote(id, body) { return check(await sb.from('submission_notes').insert({ submission_id: id, body }).select().single()); },
   async deleteSubmission(id) { check(await sb.from('submissions').delete().eq('id', id)); },
+  async deleteSubmissions(ids) { if (!ids.length) return; check(await sb.from('submissions').delete().in('id', ids)); },
   async trash() { return check(await sb.from('submissions_trash').select('id,data,deleted_by,deleted_at').order('deleted_at', { ascending: false })); },
   async restoreSubmission(id) { check(await sb.rpc('restore_submission', { p_id: id })); },
   async purgeTrash(id) { check(await sb.from('submissions_trash').delete().eq('id', id)); },
