@@ -3,6 +3,7 @@ import { html, icon, toast, errMsg, fmtDate, timeAgo, statusPill, STATUS, WA_STA
 
 const F = { search: '', status: '', category: '', from: '', to: '', page: 1, wa: '' };
 const PAGE_SIZE = 25;
+const SEL = new Map(); // selected submissions (id → { name, ref }) for bulk delete
 
 const CSV_COLS = [
   { label: 'Reference', get: (r) => r.ref },
@@ -47,9 +48,25 @@ export async function render(ctx) {
       <button class="btn ghost sm" id="clr">Clear</button>
     </div>
     ${F.wa ? html`<div class="alert warn">Showing submissions whose WhatsApp delivery failed. <span class="spacer"></span><a class="btn sm" href="#/submissions">Show all</a></div>` : ''}
+    <div class="bulk-bar" id="bulkBar" hidden><span id="bulkCount"></span><span class="spacer"></span>
+      <button class="btn sm ghost" id="bulkClear" type="button">Clear selection</button>
+      <button class="btn sm danger" id="bulkDel" type="button">${icon('trash')} Delete selected</button></div>
     <div class="card" id="list"><div class="empty-state"><div class="spinner" style="margin:0 auto"></div></div></div>`);
 
   const $ = (s) => ctx.el.querySelector(s);
+  const syncBulk = () => {
+    const n = SEL.size;
+    $('#bulkBar').hidden = n === 0;
+    $('#bulkCount').textContent = `${n} submission${n === 1 ? '' : 's'} selected`;
+    const boxes = Array.from(ctx.el.querySelectorAll('.row-check'));
+    boxes.forEach((b) => { b.checked = SEL.has(b.dataset.id); b.closest('tr').classList.toggle('is-selected', b.checked); });
+    const all = ctx.el.querySelector('#checkAll');
+    if (all) {
+      const on = boxes.filter((b) => b.checked).length;
+      all.checked = boxes.length > 0 && on === boxes.length;
+      all.indeterminate = on > 0 && on < boxes.length;
+    }
+  };
   const load = async () => {
     if (!ctx.isCurrent()) return;
     const box = $('#list');
@@ -59,8 +76,9 @@ export async function render(ctx) {
       const pages = Math.max(1, Math.ceil(count / PAGE_SIZE));
       box.innerHTML = String(rows.length ? html`
         <div class="table-wrap"><table class="tbl">
-          <thead><tr><th>Client</th><th class="hide-sm">Design</th><th class="hide-sm">Category</th><th>Status</th><th class="hide-sm">Submitted</th><th class="hide-sm" title="WhatsApp delivery">WA</th></tr></thead>
+          <thead><tr><th class="sel-col"><input type="checkbox" id="checkAll" aria-label="Select all on this page"></th><th>Client</th><th class="hide-sm">Design</th><th class="hide-sm">Category</th><th>Status</th><th class="hide-sm">Submitted</th><th class="hide-sm" title="WhatsApp delivery">WA</th></tr></thead>
           <tbody>${rows.map((r) => html`<tr class="clickable ${r.status === 'new' ? 'is-new' : ''}" data-id="${r.id}" tabindex="0">
+            <td class="sel-col"><input type="checkbox" class="row-check" data-id="${r.id}" data-name="${r.client_name || 'Client'}" data-ref="${r.ref}" aria-label="Select ${r.client_name || r.ref}"></td>
             <td><div class="t-strong">${r.client_name || '—'}</div><div class="small muted">${r.client_whatsapp || r.client_email || ''} · <span class="mono">${r.ref}</span></div></td>
             <td class="hide-sm">${r.sample_name || '—'}</td>
             <td class="hide-sm">${r.category || '—'}</td>
@@ -71,6 +89,17 @@ export async function render(ctx) {
           <button class="btn sm" data-pg="-1" ${F.page <= 1 ? 'disabled' : ''}>← Prev</button><span>Page ${F.page} / ${pages}</span>
           <button class="btn sm" data-pg="1" ${F.page >= pages ? 'disabled' : ''}>Next →</button></div>`
         : html`<div class="empty-state"><div class="big">📭</div>${F.search || F.status || F.category || F.from || F.to ? 'No submissions match these filters.' : 'No submissions yet. They appear here as soon as a client submits details on the website.'}</div>`);
+      box.querySelectorAll('.sel-col').forEach((td) => td.addEventListener('click', (e) => e.stopPropagation()));
+      box.querySelectorAll('.row-check').forEach((b) => b.addEventListener('change', () => {
+        if (b.checked) SEL.set(b.dataset.id, { name: b.dataset.name, ref: b.dataset.ref }); else SEL.delete(b.dataset.id);
+        syncBulk();
+      }));
+      const all = box.querySelector('#checkAll');
+      if (all) all.addEventListener('change', () => {
+        box.querySelectorAll('.row-check').forEach((b) => { if (all.checked) SEL.set(b.dataset.id, { name: b.dataset.name, ref: b.dataset.ref }); else SEL.delete(b.dataset.id); });
+        syncBulk();
+      });
+      syncBulk();
       box.querySelectorAll('tr[data-id]').forEach((tr) => {
         const go = () => ctx.navigate(`#/submissions/${tr.dataset.id}`);
         tr.addEventListener('click', go);
@@ -79,6 +108,30 @@ export async function render(ctx) {
       box.querySelectorAll('[data-pg]').forEach((b) => b.addEventListener('click', () => { F.page += Number(b.dataset.pg); load(); }));
     } catch (e) { box.innerHTML = String(html`<div class="empty-state">⚠️ ${errMsg(e)}</div>`); }
   };
+
+  $('#bulkClear').addEventListener('click', () => { SEL.clear(); syncBulk(); });
+  $('#bulkDel').addEventListener('click', async () => {
+    const items = Array.from(SEL.entries());
+    if (!items.length) return;
+    const n = items.length;
+    const names = items.slice(0, 6).map(([, v]) => `${v.name} (${v.ref})`).join(', ') + (n > 6 ? ` and ${n - 6} more` : '');
+    const ok = await confirmDialog({
+      title: `Delete ${n} submission${n === 1 ? '' : 's'}?`,
+      message: `This removes ${names} from the inbox. A copy of each is kept in Settings → Recovery bin so they can be restored.`,
+      confirm: `Delete ${n} submission${n === 1 ? '' : 's'}`, danger: true, typeToConfirm: 'DELETE',
+    });
+    if (!ok) return;
+    const btn = $('#bulkDel');
+    btn.disabled = true;
+    try {
+      await ctx.data.deleteSubmissions(items.map(([id]) => id));
+      SEL.clear();
+      toast(`${n} submission${n === 1 ? '' : 's'} deleted (recoverable from Settings)`, 'ok');
+      ctx.refreshCounts();
+      await load();
+    } catch (er) { toast(errMsg(er), 'err'); }
+    btn.disabled = false;
+  });
 
   $('#q').addEventListener('input', debounce(() => { F.search = $('#q').value; F.page = 1; load(); }, 300));
   $('#fs').addEventListener('change', () => { F.status = $('#fs').value; F.page = 1; load(); });
