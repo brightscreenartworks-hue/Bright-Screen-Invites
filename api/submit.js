@@ -104,6 +104,7 @@ module.exports = handle(async (req, res) => {
 
   // Never lose a lead: the website's own form decides which fields are required.
   // Only a completely empty submission is refused.
+  if (record.payload) delete record.payload.attachments; // only set by /api/upload after real uploads
   const couple = (record.payload && record.payload.couple) || {};
   const p = record.payload || {};
   const hasSomething = record.client_name || record.client_whatsapp || record.client_email ||
