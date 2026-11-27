@@ -14,7 +14,7 @@ module.exports = handle(async (req, res) => {
   const admin = await requireAdmin(req);
 
   if (req.method === 'GET') {
-    return send(res, 200, { ok: true, providers: providerStatus(), email: Boolean(process.env.NOTIFY_EMAIL) }, { 'Cache-Control': 'no-store' });
+    return send(res, 200, { ok: true, providers: providerStatus(), email: Boolean(process.env.NOTIFY_EMAIL), push: Boolean(process.env.NTFY_TOPIC) }, { 'Cache-Control': 'no-store' });
   }
 
   const body = await readJson(req, 10 * 1024);
