@@ -5,7 +5,8 @@
 
 const crypto = require('crypto');
 const { rest, getSettings, readJson, send, handle, allowMethods, HttpError } = require('./_lib/supabase');
-const { sendWhatsApp, digits } = require('./_lib/whatsapp');
+const { digits } = require('./_lib/whatsapp');
+const { notifyOrder } = require('./_lib/notify');
 
 const SOURCES = new Set(['fill-details', 'index-personalize', 'other']);
 const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,24}$/;
@@ -61,7 +62,9 @@ async function deliver(req, row, settings) {
   const link = settings.include_admin_link !== false && siteOrigin(req)
     ? `\n\n🔐 Admin: ${siteOrigin(req)}/admin/#/submissions/${row.id}` : '';
   const text = `${header}\n\n${row.summary_text || buildSummary(row)}${link}`;
-  const result = await sendWhatsApp(settings, text);
+  const subject = `New order ${row.ref}: ${row.client_name || 'Client'}${row.sample_name ? ` (${row.sample_name})` : ''}`;
+  // Email + WhatsApp (whichever are configured). Status is 'sent' when any channel delivered.
+  const result = await notifyOrder(settings, subject, text.replace(/\*/g, ''));
   const patch = {
     whatsapp_status: result.status,
     whatsapp_error: result.error || null,
@@ -71,7 +74,7 @@ async function deliver(req, row, settings) {
   try {
     await rest(`submissions?id=eq.${row.id}`, { method: 'PATCH', body: patch, prefer: 'return=minimal' });
   } catch (e) {
-    console.error('[submit] could not record WhatsApp status', e.message);
+    console.error('[submit] could not record alert status', e.message);
   }
   return result.status;
 }
