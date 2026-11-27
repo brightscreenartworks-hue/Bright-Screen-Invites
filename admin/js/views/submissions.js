@@ -170,7 +170,7 @@ async function renderDetail(ctx, id) {
               <tbody>${evs.map((e, i) => html`<tr><td>${i + 1}</td><td><strong>${e.name || ''}</strong></td><td>${e.date || ''}</td><td>${e.time || ''}</td><td>${e.venue || ''}</td><td>${e.dress || ''}</td></tr>`)}</tbody></table></div>` : ''}
           </div></div>
 
-          ${Array.isArray(p.attachments) && p.attachments.length ? html`<div class="card"><div class="card-h"><h2>Caricature photos & files</h2><span class="spacer"></span><span class="small muted">${p.attachments.length} file${p.attachments.length === 1 ? '' : 's'}</span></div>
+          ${Array.isArray(p.attachments) && p.attachments.length ? html`<div class="card"><div class="card-h"><h2>Caricature photos & files</h2><span class="spacer"></span><span class="small muted att-count">${p.attachments.length} file${p.attachments.length === 1 ? '' : 's'}</span><button class="btn sm danger" id="attDelAll" type="button">${icon('trash')} Delete all</button></div>
             <div class="card-b"><div class="att-grid" id="attGrid"><p class="small muted" style="margin:0">Loading photos…</p></div></div></div>` : ''}
 
           ${row.summary_text ? html`<div class="card"><div class="card-h"><h2>Message as sent</h2><span class="spacer"></span><button class="btn sm" id="copySummary">${icon('copy')} Copy</button></div>
@@ -212,6 +212,7 @@ async function renderDetail(ctx, id) {
     if (e.type === 'note') return html`Note added${d.preview ? html`: <em>“${d.preview}”</em>` : ''}`;
     if (e.type === 'whatsapp') return d.status === 'sent' ? 'Sent to business WhatsApp' : html`WhatsApp ${d.status}${d.error ? html` — <span class="muted">${d.error}</span>` : ''}`;
     if (e.type === 'restored') return 'Restored from the recovery bin';
+    if (e.type === 'files_deleted') return html`Deleted ${d.count || ''} photo${d.count === 1 ? '' : 's'}${Array.isArray(d.names) && d.names.length ? html`: <span class="muted">${d.names.join(', ')}</span>` : ''}`;
     return e.type;
   };
 
@@ -231,7 +232,8 @@ async function renderDetail(ctx, id) {
           ${f.url && isImg ? html`<a class="att-img" href="${f.url}" target="_blank" rel="noopener"><img src="${f.url}" alt="${f.name}" loading="lazy"></a>`
             : html`<div class="att-img att-file">${icon('file')}<span>${(String(f.name || '').split('.').pop() || 'file').toUpperCase()}</span></div>`}
           <div class="att-meta"><div class="att-name" title="${f.name}">${f.name}</div><div class="small muted">${f.size ? kb(f.size) : ''}</div></div>
-          ${f.url ? html`<div class="att-actions"><a class="btn sm" href="${f.url}" target="_blank" rel="noopener">Open</a><a class="btn sm" href="${dl}">Download</a></div>` : html`<div class="small muted">Unavailable</div>`}
+          <div class="att-actions">${f.url ? html`<a class="btn sm" href="${f.url}" target="_blank" rel="noopener">Open</a><a class="btn sm" href="${dl}">Download</a>` : html`<span class="small muted">Unavailable</span>`}</div>
+          <button class="att-del" type="button" data-path="${f.path}" data-name="${f.name}" title="Delete this file" aria-label="Delete ${f.name}">${icon('trash')}</button>
         </div>`;
       })}`);
     } catch (er) {
@@ -239,9 +241,45 @@ async function renderDetail(ctx, id) {
     }
   }
 
+  const fmtSize = (n) => (n > 1048576 ? `${(n / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(n / 1024))} KB`);
+
+  async function deleteFiles({ paths, all, label }) {
+    const ok = await confirmDialog({
+      title: all ? 'Delete all photos of this order?' : 'Delete this photo?',
+      message: `${label} will be permanently deleted from storage to free up space. This cannot be undone — download anything you still need first. The order itself is kept.`,
+      confirm: all ? 'Delete all photos' : 'Delete photo', danger: true,
+    });
+    if (!ok) return;
+    try {
+      const r = await ctx.data.deleteSubmissionFiles(id, { paths, all });
+      toast(`Deleted ${r.deleted} file${r.deleted === 1 ? '' : 's'}${r.freed_bytes ? ` · ${fmtSize(r.freed_bytes)} freed` : ''}`, 'ok');
+      await reload();
+    } catch (er) { toast(errMsg(er), 'err'); }
+  }
+
+  function bindFiles() {
+    const el = ctx.el;
+    const all = el.querySelector('#attDelAll');
+    if (all) {
+      all.addEventListener('click', () => {
+        const n = ((row.payload || {}).attachments || []).length;
+        deleteFiles({ all: true, label: `All ${n} file${n === 1 ? '' : 's'} attached to ${row.ref}` });
+      });
+    }
+    const grid = el.querySelector('#attGrid');
+    if (grid) {
+      grid.addEventListener('click', (e) => {
+        const b = e.target.closest('.att-del');
+        if (!b) return;
+        deleteFiles({ paths: [b.dataset.path], label: `“${b.dataset.name}”` });
+      });
+    }
+  }
+
   function bind() {
     const el = ctx.el;
     loadFiles();
+    bindFiles();
     el.querySelector('#statusSeg').addEventListener('click', async (e) => {
       const b = e.target.closest('[data-st]');
       if (!b || b.dataset.st === row.status) return;
