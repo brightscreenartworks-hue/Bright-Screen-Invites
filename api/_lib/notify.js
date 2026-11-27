@@ -2,6 +2,8 @@
 // your own phone/computer is off. Channels:
 //   • Email    — to NOTIFY_EMAIL (Vercel env var). Uses Resend if RESEND_API_KEY is set,
 //                otherwise the free FormSubmit relay (one-time "Activate" email the first time).
+//   • Phone push — free ntfy app (ntfy.sh). Set NTFY_TOPIC in Vercel and subscribe to the
+//                same topic in the ntfy app. Works from servers, no account needed.
 //   • WhatsApp — via ./whatsapp.js when enabled in Admin → WhatsApp Settings and a provider key exists.
 'use strict';
 
@@ -52,17 +54,43 @@ async function sendEmail(subject, text) {
   }
 }
 
+async function sendPush(subject, text) {
+  const topic = (process.env.NTFY_TOPIC || '').trim();
+  if (!topic) return { status: 'disabled' };
+  const server = (process.env.NTFY_SERVER || 'https://ntfy.sh').replace(/\/+$/, '');
+  try {
+    const res = await fetchWithTimeout(`${server}/${encodeURIComponent(topic)}`, {
+      method: 'POST',
+      headers: {
+        // Header values must be plain ASCII.
+        Title: subject.replace(/[^\x20-\x7E]/g, '').slice(0, 200) || 'New order',
+        Priority: 'high',
+        Tags: 'tada',
+        Click: `${siteUrl()}/admin/#/submissions`,
+        'Content-Type': 'text/plain; charset=utf-8',
+      },
+      body: text.slice(0, 3900),
+    }, 12000);
+    if (!res.ok) throw new Error(`Push: HTTP ${res.status}`);
+    return { status: 'sent', provider: 'ntfy' };
+  } catch (err) {
+    const msg = err && err.name === 'AbortError' ? 'Push timed out' : String((err && err.message) || err);
+    return { status: 'failed', error: msg.slice(0, 300) };
+  }
+}
+
 /**
  * Sends the order alert on every configured channel.
  * Returns { status: 'sent'|'failed'|'disabled', error?, channels: {...} } — 'sent' if ANY channel delivered.
  */
 async function notifyOrder(waSettings, subject, text) {
-  const [email, whatsapp] = await Promise.all([
+  const [push, email, whatsapp] = await Promise.all([
+    sendPush(subject, text),
     sendEmail(subject, text),
     sendWhatsApp(waSettings, text),
   ]);
-  const channels = { email, whatsapp };
-  const results = [email, whatsapp];
+  const channels = { push, email, whatsapp };
+  const results = [push, email, whatsapp];
   if (results.some((r) => r.status === 'sent')) {
     const failed = results.filter((r) => r.status === 'failed').map((r) => r.error);
     return { status: 'sent', error: failed.length ? `Partly failed: ${failed.join(' | ')}` : null, channels };
@@ -71,4 +99,4 @@ async function notifyOrder(waSettings, subject, text) {
   return { status: 'failed', error: results.filter((r) => r.error).map((r) => r.error).join(' | ').slice(0, 300), channels };
 }
 
-module.exports = { notifyOrder, sendEmail };
+module.exports = { notifyOrder, sendEmail, sendPush };
