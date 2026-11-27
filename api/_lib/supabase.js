@@ -113,6 +113,25 @@ async function uploadToStorage(bucket, objectPath, bytes, contentType) {
   return `${SUPABASE_URL}/storage/v1/object/public/${bucket}/${objectPath}`;
 }
 
+// Raw Supabase Storage API call with the service role (server only).
+async function storage(path, { method = 'GET', body, headers = {} } = {}) {
+  if (!configured()) throw new HttpError(503, 'Database is not configured');
+  const res = await fetchWithTimeout(`${SUPABASE_URL}/storage/v1/${path}`, {
+    method,
+    headers: {
+      apikey: SERVICE_KEY,
+      Authorization: `Bearer ${SERVICE_KEY}`,
+      ...(body !== undefined ? { 'Content-Type': 'application/json' } : {}),
+      ...headers,
+    },
+    body: body === undefined ? undefined : JSON.stringify(body),
+  }, 15000);
+  const text = await res.text();
+  let data = null;
+  if (text) { try { data = JSON.parse(text); } catch { data = text; } }
+  return { ok: res.ok, status: res.status, data };
+}
+
 // ---- tiny request/response helpers ----
 async function readJson(req, maxBytes = 200 * 1024) {
   if (req.body && typeof req.body === 'object' && !Buffer.isBuffer(req.body)) return req.body;
@@ -159,5 +178,5 @@ function allowMethods(req, methods) {
 
 module.exports = {
   SUPABASE_URL, ANON_KEY, configured, HttpError, fetchWithTimeout, rest, getSettings,
-  requireAdmin, authAdmin, uploadToStorage, readJson, send, handle, allowMethods,
+  requireAdmin, authAdmin, uploadToStorage, storage, readJson, send, handle, allowMethods,
 };
